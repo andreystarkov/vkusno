@@ -21,39 +21,42 @@
         <?php foreach ($styles as $style) { ?>
         <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
         <?php } ?>
-        <link rel="stylesheet/less" type="text/css" href="css/root.less" />
-        <link rel="stylesheet" href="css/main.css">
 
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet/less" type="text/css" href="css/root.less" />
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="/fonts/hagincaps/font.css">
         <link rel="stylesheet" type="text/css" href="/css/shape.css" />
         <link rel="stylesheet" type="text/css" href="/css/slider.css" />
         <link rel="stylesheet" type="text/css" href="/css/slider-theme.css" />
-        <script src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/slider-more.css" />
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="/js/vendor/bootstrap.min.js"></script>
         <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
-
         <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
+        <script src="/js/modernizr.custom.js"></script>
 
         <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
         <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
         <script type="text/javascript" src="/js/snap.svg-min.js"></script>
+        <script type="text/javascript" src="/js/slider.js"></script>
         <script type="text/javascript" src="/js/hovers.js"></script>
+
         <script src="/js/main.js"></script>
         <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
 
-        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <noscript>
+          <link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
+        </noscript>
+
         <script src="/js/vendor/less-1.7.0.min.js"></script>
 
         <script type="text/javascript" charset="utf-8">
           less.env = "development";
           less.watch();
         </script>
-        <noscript>
-          <link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
-        </noscript>
-
         <?php foreach ($scripts as $script) { ?>
         <script type="text/javascript" src="<?php echo $script; ?>"></script>
         <?php } ?>
@@ -79,6 +82,26 @@
         <?php echo $google_analytics; ?>
 </head>
 <body>
+  <div id="left-panel">
+              <div id="left-panel">
+        <?php if ($categories) { ?>
+          <?php foreach ($categories as $category) { ?>
+          <a class="parent" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+            <?php if ($category['children']) { ?>
+              <?php for ($i = 0; $i < count($category['children']);) { ?>
+                <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
+                <?php for (; $i < $j; $i++) { ?>
+                <?php if (isset($category['children'][$i])) { ?>
+                <a class="child" href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a>
+                <?php } ?>
+                <?php } ?>
+               <?php } ?>
+              <?php } ?>
+            <?php } ?>
+          <?php } ?>
+      </div>
+      </div>
+
 
 <div id="container">
 
@@ -99,12 +122,14 @@
       <?php } else { ?>
       <?php echo $text_logged; ?>
       <?php } ?>
-    </div> -->
-    <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
+    </div>
+    <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a>
+      <a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $shopping_cart; ?>">
+      <?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>-->
   </div>
 
 <?php if ($categories) { ?>
-<div id="menu">
+<!--<div id="menu">
   <ul>
     <?php foreach ($categories as $category) { ?>
     <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
@@ -124,8 +149,11 @@
       <?php } ?>
     </li>
     <?php } ?>
+    <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
+    <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a</li>
+    <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
   </ul>
-</div>
+</div> -->
 <?php } ?>
 <?php if ($error) { ?>
 

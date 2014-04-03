@@ -4,12 +4,13 @@
     @import "http://webfonts.ru/import/noto.css";
     @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic);
     @import url(http://vesna56.ru/fonts/hagincaps/font.css);
-@import "http://webfonts.ru/import/airport.css";
-@import "http://webfonts.ru/import/attentica.css";
+    @import "http://webfonts.ru/import/airport.css";
+    @import "http://webfonts.ru/import/attentica.css";
+
     @font-header: 'Hagin Caps Medium';
     @font-subheader: 'Open Sans Condensed';
     @text-font: 'Noto Sans';
-    @desc-font: 'Open Sans Condensed';;
+    @desc-font: 'Open Sans Condensed';
     @highlight-bg: #ffe156;
     @highlight-shadow: #d6b342;
 
@@ -27,19 +28,46 @@
     @yellow: #f4a21c;
     @yellow-shadow: #d0b14d;
 
+    #slider-prev, #slider-next { z-index: 66666 }
     @gray: #d4c493;
     @gray-shadow: #b7a56f;
-
+    a { transition: 0.5s ease-in-out all; }
     #left-panel { position: fixed;
         top: 0;
         left: 0;
-        width: 375px;
+        padding-top: 50px;
+        width: 370px;
         height: 100%;
         color: #fff;
         background: mix(@brown, #666, 70%);
-        box-shadow: inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125);
-        text-align: right;}
+        box-shadow: inset -10% 0 20% rgba(0,0,0,0.3);
+        text-align: right;
+        a {
+            width: 100%;
+            display: block;
+            padding: 15px 25px;
+            font-family: 'Bebas Neue';
+            font-size: 25px;
+            color: mix(@gray, #fff, 70%);
+
+            &.parent {
+                background: mix(@red-dark, #666, 50%);
+                margin-bottom: 10px; margin-top: 20px;
+            }
+            &.child {
+               font-size:20px;
+               padding: 10px 35px;
+               color: mix(@gray, #fff, 90%);
+            }
+
+            &:hover {
+                text-decoration: none;
+                background: mix(@brown, #fff, 80%);
+            }
+        }
+        }
     body {
+        padding-left: 400px;
         background: #e2d9cd !important;
     }
     .no-padding { padding: 0}
@@ -53,6 +81,10 @@
         background: mix(@red-dark, #ccc, 80%);
         border-bottom: 1px solid #000000;
         height: 53px;
+        z-index:666;
+        position: fixed;
+        width: 100%;
+        top:0; left: 0;
         margin-bottom: 15px;
         -webkit-border-radius: 5px 5px 5px 5px;
         -moz-border-radius: 5px 5px 5px 5px;
@@ -65,8 +97,13 @@
         transition: 0.6s ease-in-out all;
     }
     #menu ul {
+        overflow:hidden;
+        zoom:1;
+        height:53px;
+        min-width:960px;
+        margin: 0 auto;
         list-style: none;
-        margin: 0;
+
         padding: 0;
     }
     #menu > ul > li {
@@ -281,7 +318,6 @@
     .slider-container {
         width: 100%;
         height: 600px;
-        position: absolute;
-        left: 0;
-        top: 0;
+        position: relative;
+
     }

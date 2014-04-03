@@ -71,8 +71,11 @@ label {
 	text-align: left;
 }
 #column-left {
-	float: left;
-	width: 180px;
+	position:fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 280px;
 }
 #column-right {
 	float: right;
@@ -563,6 +566,7 @@ a.button:hover, input.button:hover {
 }
 /* box */
 .box {
+
 	margin-bottom: 20px;
 }
 .box .box-heading {
