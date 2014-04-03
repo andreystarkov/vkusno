@@ -3,7 +3,7 @@
     <div class="body no-padding">
       <div class="box-item">
         <?php foreach ($products as $product) { ?>
-          <div>
+          <div class="boxy">
             <?php // if ($product['thumb']) { ?>
               <div class="image">
                   <div class="img-thumb" style="background-image:url(<?php echo $product['thumb']; ?>)" >

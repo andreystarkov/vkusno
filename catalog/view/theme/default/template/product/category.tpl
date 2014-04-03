@@ -46,10 +46,10 @@
 
     <div class="box-item">
       <?php foreach ($products as $product) { ?>
-        <div>
-          <?php // if ($product['thumb']) { ?>
+        <div class="boxy">
+          <?php if ( empty($product['thumb']) ) { $imgThumb = "/image/no.jpg"; } else { $imgThumb = $product['thumb']; } ?>
             <div class="image">
-                <div class="img-thumb" style="background-image:url(<?php echo $product['thumb']; ?>)" >
+                <div class="img-thumb" style="background-image:url(<?php echo $imgThumb; ?>)" >
                   <div class="cart">
                     <div class="price"><?php echo $product['price']; ?></div>
                     <div class="btn-cart" onclick="addToCart('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> В корзину</div>
@@ -57,7 +57,6 @@
                   </div>
                 </div>
             </div>
-          <?php // } ?>
         <div class="name"><?php echo $product['name']; ?></div>
         </div>
       <?php } ?>

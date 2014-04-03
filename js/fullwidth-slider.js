@@ -1,100 +1,105 @@
-$(function() {
+    (function() {
 
-    function rand(min, max){
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    var support = { animations : Modernizr.cssanimations },
-        animEndEventNames = {
-            'WebkitAnimation' : 'webkitAnimationEnd',
-            'OAnimation' : 'oAnimationEnd',
-            'msAnimation' : 'MSAnimationEnd',
-            'animation' : 'animationend'
-        },
-
-        animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
-        effectSel = document.getElementById( 'fxselect' ),
-        component = $( '#nice-slider' ),
-        items = $( 'ul.itemwrap' ).children,
-        current = 0,
-        itemsCount = items.length,
-        nav = $( '#slider-nav' ),
-        navNext = $( '.next' ),
-        navPrev = $( '.prev' ),
-        isAnimating = false;
-
-        navNext.click(function(){
-            navigate( 'next' );
-        });
-
-        navPrev.click(function(){
-            navigate( 'prev' );
-        });
-        var effects = ["fxSoftScale", "fxPressAway", "fxSideSwing", "fxFortuneWheel", "fxSwipe", "fxPushReveal", "fxSnapIn",
-        "fxLetMeIn", "fxStickIt", "fxArchiveMe", "fxVGrowth", "fxSlideBehind", "fxSoftPulse", "fxEarthquake","fxCliffDiving"];
-
-        function init() {
-            showNav();
-            changeEffect();
+        function rand(min, max){
+          return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function hideNav() {
-            nav.css({'display': 'none'});
-        }
+        var support = { animations : Modernizr.cssanimations },
+            animEndEventNames = {
+                'WebkitAnimation' : 'webkitAnimationEnd',
+                'OAnimation' : 'oAnimationEnd',
+                'msAnimation' : 'MSAnimationEnd',
+                'animation' : 'animationend'
+            },
 
-        function showNav() {
-            nav.css({'display': 'block'});
-        }
+            animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
+            effectSel = document.getElementById( 'fxselect' ),
+            component = document.getElementById( 'nice-slider' ),
+            items = component.querySelector( 'ul.itemwrap' ).children,
+            current = 0,
+            itemsCount = items.length,
+            nav = component.querySelector( 'nav' ),
+            navNext = nav.querySelector( '.next' ),
+            navPrev = nav.querySelector( '.prev' ),
+            isAnimating = false;
 
-        function changeEffect() {
-            var rnd = rand(0,effects.length)
-            var effect = effects[rnd];
-            console.log(rnd+" = "+effect);
-            component.addClass(effect);
-            showNav();
-        }
+            var effects = ["fxSoftScale", "fxPressAway", "fxSideSwing", "fxFortuneWheel", "fxSwipe", "fxPushReveal", "fxSnapIn",
+            "fxLetMeIn", "fxStickIt", "fxArchiveMe", "fxVGrowth", "fxSlideBehind", "fxSoftPulse", "fxCliffDiving"];
 
-        function navigate( dir ) {
-            changeEffect();
-            isAnimating = true;
-            var cntAnims = 0;
-
-            var currentItem = items[ current ];
-
-            if( dir === 'next' ) {
-                current = current < itemsCount - 1 ? current + 1 : 0;
-            }
-            else if( dir === 'prev' ) {
-                current = current > 0 ? current - 1 : itemsCount - 1;
+            function init() {
+                showNav();
+                changeEffect();
+                navNext.addEventListener( 'click', function( ev ) { ev.preventDefault(); navigate( 'next' ); } );
+                navPrev.addEventListener( 'click', function( ev ) { ev.preventDefault(); navigate( 'prev' ); } );
             }
 
-            var nextItem = items[ current ];
+            function hideNav() {
+                nav.style.display = 'none';
+            }
 
-            var onEndAnimationCurrentItem = function() {
-                $(this).removeClass( 'current' );
-                $(this).removeClass( dir === 'next' ? 'navOutNext' : 'navOutPrev' );
-                ++cntAnims;
-                if( cntAnims === 2 ) {
-                    isAnimating = false;
+            function showNav() {
+                nav.style.display = 'block';
+            }
+
+            function changeEffect() {
+                var rnd = rand(0,effects.length);
+                var effect = effects[rnd];
+                console.log(rnd+" = "+effect);
+                classie.addClass( component, effect );
+                showNav();
+            }
+
+            function navigate( dir ) {
+
+                isAnimating = true;
+                var cntAnims = 0;
+
+                var currentItem = items[ current ];
+
+                if( dir === 'next' ) {
+                    current = current < itemsCount - 1 ? current + 1 : 0;
                 }
-            }
-
-            var onEndAnimationNextItem = function() {
-                $(this).addClass( 'current' );
-                $(this).removeClass( dir === 'next' ? 'navInNext' : 'navInPrev' );
-                ++cntAnims;
-                if( cntAnims === 2 ) {
-                    isAnimating = false;
+                else if( dir === 'prev' ) {
+                    current = current > 0 ? current - 1 : itemsCount - 1;
                 }
+
+                var nextItem = items[ current ];
+
+                var onEndAnimationCurrentItem = function() {
+                    this.removeEventListener( animEndEventName, onEndAnimationCurrentItem );
+                    classie.removeClass( this, 'current' );
+                    classie.removeClass( this, dir === 'next' ? 'navOutNext' : 'navOutPrev' );
+                    ++cntAnims;
+                    if( cntAnims === 2 ) {
+                        isAnimating = false;
+                    }
+                    changeEffect();
+                }
+
+                var onEndAnimationNextItem = function() {
+                    this.removeEventListener( animEndEventName, onEndAnimationNextItem );
+                    classie.addClass( this, 'current' );
+                    classie.removeClass( this, dir === 'next' ? 'navInNext' : 'navInPrev' );
+                    ++cntAnims;
+                    if( cntAnims === 2 ) {
+                        isAnimating = false;
+                    }
+                    changeEffect();
+                }
+
+                if( support.animations ) {
+                    currentItem.addEventListener( animEndEventName, onEndAnimationCurrentItem );
+                    nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
+                }
+                else {
+                    onEndAnimationCurrentItem();
+                    onEndAnimationNextItem();
+                }
+
+                classie.addClass( currentItem, dir === 'next' ? 'navOutNext' : 'navOutPrev' );
+                classie.addClass( nextItem, dir === 'next' ? 'navInNext' : 'navInPrev' );
             }
 
-                onEndAnimationCurrentItem();
-                onEndAnimationNextItem();
-
-           currentItem.addClass( dir === 'next' ? 'navOutNext' : 'navOutPrev' );
-           nextItem.addClass( dir === 'next' ? 'navInNext' : 'navInPrev' );
-        }
-
-        init();
-        changeEffect()
-});
+            init();
+            changeEffect()
+    })();
