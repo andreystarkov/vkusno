@@ -37,9 +37,10 @@
         <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
         <script src="/js/modernizr.custom.js"></script>
-
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
         <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
+        <script type="text/javascript" src="/js/jquery.transit.min.js"></script>
         <script type="text/javascript" src="/js/snap.svg-min.js"></script>
         <script type="text/javascript" src="/js/slider.js"></script>
         <script type="text/javascript" src="/js/hovers.js"></script>
@@ -103,7 +104,7 @@
       </div>
 
 
-<div id="container">
+<div id="box-container">
 
   <div id="header">
 <!--    <?php if ($logo) { ?>
@@ -129,31 +130,15 @@
   </div>
 
 <?php if ($categories) { ?>
-<!--<div id="menu">
+<div id="menu">
   <ul>
-    <?php foreach ($categories as $category) { ?>
-    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-      <?php if ($category['children']) { ?>
-      <div>
-        <?php for ($i = 0; $i < count($category['children']);) { ?>
-        <ul>
-          <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
-          <?php for (; $i < $j; $i++) { ?>
-          <?php if (isset($category['children'][$i])) { ?>
-          <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
-          <?php } ?>
-          <?php } ?>
-        </ul>
-        <?php } ?>
-      </div>
-      <?php } ?>
-    </li>
-    <?php } ?>
+    <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
+    <li><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></li>
     <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
     <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a</li>
     <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
   </ul>
-</div> -->
+</div>
 <?php } ?>
 <?php if ($error) { ?>
 

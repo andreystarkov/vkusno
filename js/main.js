@@ -1,82 +1,26 @@
       $(function() {
 
-        function init() {
-            var speed = 330,
-                easing = mina.backout;
+          $('.btn-cart').transition({y:'200px'}, 10);
+          $('.item-link').transition({y:'200px'}, 10);
 
-            [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
-                var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-                    pathConfig = {
-                        from : path.attr( 'd' ),
-                        to : el.getAttribute( 'data-path-hover' )
-                    };
+        var hoverAnimation = 0;
 
-                el.addEventListener( 'mouseenter', function() {
-                    path.animate( { 'path' : pathConfig.to }, speed, easing );
-                } );
-
-                el.addEventListener( 'mouseleave', function() {
-                    path.animate( { 'path' : pathConfig.from }, speed, easing );
-                } );
-            } );
-        }
-
-        init();
-
-        var Page = (function() {
-
-          var $nav = $( '#nav-dots > span' ),
-            slitslider = $( '#slider' ).slitslider( {
-              onBeforeChange : function( slide, pos ) {
-
-                $nav.removeClass( 'nav-dot-current' );
-                $nav.eq( pos ).addClass( 'nav-dot-current' );
-
-              }
-            } ),
-
-            init = function() {
-
-              initEvents();
-
-            },
-            initEvents = function() {
-
-              $nav.each( function( i ) {
-
-                $( this ).on( 'click', function( event ) {
-
-                  var $dot = $( this );
-
-                  if( !slitslider.isActive() ) {
-
-                    $nav.removeClass( 'nav-dot-current' );
-                    $dot.addClass( 'nav-dot-current' );
-
-                  }
-
-                  slitslider.jump( i + 1 );
-                  return false;
-
-                } );
-
-              } );
-
-            };
-
-            return { init : init };
-
-        })();
-
+        $('.cart', this).fadeTo(5,1).transition({perspective: '150px', rotateX: '90deg'},5);
         $('.box-item div').hover(function(){
-            $('.cart', this).fadeTo(400,1);
-            $('.price', this).fadeTo(500,1);
-            $('.name', this).fadeTo(500,1);
+            $('a', this).transition({y:'200px'}, 10);
+            $('.cart', this).transition({perspective: '150px', rotateX: '0deg'},500);
+            $('.price', this).stop().transition({y:'0'}, 500);
+            $('.btn-cart', this).stop().transition({y:'0px'}, 700);
+            $('a', this).stop().transition({y:'0px'}, 700);
+            $('.name', this).transition({opacity:'1'}, 500);
+
         },function(){
-          $('.cart', this).fadeTo(600,0);
-          $('.price', this).fadeTo(500,0.7);
-          $('.name', this).fadeTo(500,0.7);
+          $('.cart', this).transition({perspective: '150px', rotateX: '90deg'},200);
+          $('.price', this).transition({y:'-200px'}, 50);
+          $('.btn-cart', this).transition({y:'200px'}, 50);
+          $('a', this).transition({y:'200px'}, 50);
+          $('.name', this).transition({opacity:'0.7'}, 50);
         });
-        Page.init();
+
 
       });
