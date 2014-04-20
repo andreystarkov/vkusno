@@ -39,6 +39,7 @@
         <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
         <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
         <script type="text/javascript" src="/js/jquery.transit.min.js"></script>
+
         <script type="text/javascript" src="/js/snap.svg-min.js"></script>
         <script type="text/javascript" src="/js/slider.js"></script>
         <script type="text/javascript" src="/js/hovers.js"></script>
@@ -51,6 +52,10 @@
         </noscript>
 
         <script src="/js/vendor/less-1.7.0.min.js"></script>
+
+        <script type="text/javascript" src="/js/skel.min.js"></script>
+        <script type="text/javascript" src="/js/skel-panels.min.js"></script>
+        <script type="text/javascript" src="/js/skel-config.js"></script>
 
         <script type="text/javascript" charset="utf-8">
           less.env = "development";
@@ -78,23 +83,84 @@
         });
         //--></script>
         <?php } ?>
+        <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
         <?php echo $google_analytics; ?>
+
+        <script>
+          $(function(){
+              $('#left-panel .item span').each(function(){
+                $(this).append(' товаров');
+              });
+
+              $('#left-panel .btn-dropdown').click(function(){
+                var link = $('.sub-parent', $(this).parent());
+
+                var id = link.attr('data-id');
+                var box = '.sub-child-'+id;
+
+                $('i', this).transition({rotate: '+=180deg'});
+                if(link.hasClass('active')){
+                  $('.sub-parent').removeClass('active opened');
+                  $('#left-panel .logo').transition({height: '242px'});
+                  $(box).slideUp();
+                } else {
+                  $('.sub-parent').removeClass('active opened');
+                  $('.box-sub-child').slideUp();
+                  link.addClass('active opened');
+                  $('#left-panel .logo').transition({height: '0px'}, 100);
+
+                  $(box).slideDown();
+               }
+
+
+            });
+              $('.box-child').hide();
+              $('.box-sub-child').hide();
+
+              <? if(!empty($paths[0])){ ?>
+                var selector = '.box-child-'+<? echo $paths[0]; ?>;
+                var active = '.id-<? echo $paths[1]; ?>';
+                $('.parent-<? echo $paths[0]; ?>').addClass('active opened');
+                <? if(!empty($paths[1])){ ?>
+                  $(active).addClass('active');
+                <? } ?>
+                $(selector).slideToggle();
+
+                var selector1 = '.sub-child-<? echo $paths[1]; ?>';
+                $(selector1).slideToggle();
+              <? } ?>
+            });
+        </script>
 </head>
 <body>
 
-    <div id="left-panel">
+    <div id="left-panel" id="nav-main">
       <div class="logo"></div>
-      <?php if ($categories) { ?>
+      <?php if ($categories) {
+        ?>
         <?php foreach ($categories as $category) { ?>
-        <a class="parent" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+        <div class="parent item parent-<? echo $category['id']; ?>" data-id="<? echo $category['id']; ?>"><?php echo $category['name']; ?></div>
+        <!--  href="<?php echo $category['href']; ?>" -->
           <?php if ($category['children']) { ?>
             <?php for ($i = 0; $i < count($category['children']);) { ?>
               <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
+              <ul class="box-child level-1 box-child-<?php echo $category['children'][$i]['parent_id']; ?>">
               <?php for (; $i < $j; $i++) { ?>
               <?php if (isset($category['children'][$i])) { ?>
-              <a class="child" href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a>
+              <? if( $category['children'][$i]['children'] ) { $cls = "sub-parent"; } else { $cls = ""; } ?>
+
+              <li><a data-id="<?php echo $category['children'][$i]['id']; ?>" data-parent="<?php echo $category['children'][$i]['parent_id']; ?>" class="child item <? echo $cls; ?> id-<?php echo $category['children'][$i]['id']; ?> child-<?php echo $category['children'][$i]['parent_id']; ?>" href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a>
+             <?php if( $category['children'][$i]['children'] ) { ?>
+              <ul class="box-child level-2 box-sub-child sub-child-<? echo $category['children'][$i]['id']; ?>">
+               <?php foreach( $category['children'][$i]['children'] as $menu3item ) { ?>
+                  <li><a class="item child child-<?echo $category['children'][$i]['id']; ?>" href="<?php echo $menu3item['href']; ?>"><?php echo $menu3item['name']; ?></a></li>
+               <?php } ?>
+              </ul></li>
+           <?php } ?>
+
               <?php } ?>
               <?php } ?>
+            </ul>
              <?php } ?>
             <?php } ?>
           <?php } ?>

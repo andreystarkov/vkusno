@@ -7,9 +7,10 @@
     @import "http://webfonts.ru/import/airport.css";
     @import "http://webfonts.ru/import/attentica.css";
     @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300&subset=latin,cyrillic);
+
     @font-header: 'Hagin Caps Medium';
     @font-subheader: 'Open Sans Condensed';
-    @text-font: 'Noto Sans';
+    @font-text: 'Noto Sans';
     @desc-font: 'Open Sans Condensed';
     @highlight-bg: #ffe156;
     @highlight-shadow: #d6b342;
@@ -32,14 +33,20 @@
     @gray: #d4c493;
     @gray-shadow: #b7a56f;
 
-    #slider-wrapper {
-        width: 100%;
-        padding-left: 350px;
+    @import "./less/product-detail.less";
+    @import "./less/catalog.less";
+    @import "./less/menus.less";
+    @import "./less/slider.less";
+
+
+    body {
+        background: #e2d9cd !important;
     }
 
-
+    a { transition: 0.5s ease-in-out all; }
 
     #box-content {
+        padding-top:40px;
         width:100%;
         padding-bottom: 100px;
         padding-right: 40px;
@@ -54,55 +61,9 @@
         padding-left: 420px;
         padding-bottom: 100px;
     }
-    a { transition: 0.5s ease-in-out all; }
 
-    #left-panel {
-        position: fixed;
-        z-index: 667;
-        top: 0;
-        left: 0;
-        padding-top: 0px;
-        width: 350px;
-        height: 100%;
-        color: #fff;
-        background: mix(@brown, #666, 70%);
-        box-shadow: inset -10% 0 20% rgba(0,0,0,0.3);
-        text-align: right;
-        .logo {
-            width: 282px;
-            height: 242px;
-            margin: 20px auto;
-            background: url(../image/logo.png) center center no-repeat;
-            margin-bottom: 20px;
-        }
-        a {
-            width: 100%;
-            display: block;
-            padding: 8px 25px;
-            font-family: 'Bebas Neue';
-            font-size: 25px;
-            color: mix(@gray, #fff, 70%);
+    @panel-color: mix(@brown, #666, 70%);
 
-            &.parent {
-                background: mix(@red-dark, #666, 50%);
-                margin-bottom: 5px; margin-top: 10px;
-            }
-            &.child {
-               font-size:20px;
-               padding: 8px 30px;
-               color: mix(@gray, #fff, 90%);
-            }
-
-            &:hover {
-                text-decoration: none;
-                background: mix(@brown, #fff, 80%);
-            }
-        }
-        }
-    body {
-        padding-left: 400px;
-        background: #e2d9cd !important;
-    }
     .no-padding { padding: 0}
     .heading { font-family: "Bebas Neue"; font-size: 60px; color:fade(@brown, 80%); }
     .box-items { width: 1100px; position: relative; margin: 30px auto;
@@ -125,153 +86,6 @@
             }
     }
 
-    .btn-cart {
-    font-size: 20px;
-    font-size:29px;
-    background: @yellow;
-    outline: 0;
-    border: 0;
-    float:left;
-    border-bottom: 3px solid mix(@yellow, #000, 85%);
-    font-family: 'Bebas Neue';
-    text-transform: uppercase;
-    padding: 8px 0px 8px 0px;
-    display: block;
-    color: @brown;
-    cursor: pointer;
-    i { margin-right: 20px;}
-    width: 180px;
-    border-radius: 8px;
-    transition: 0.8s ease-in-out all;
-    &:hover {
-        background: mix(@yellow, #fff, 80%);
-        color: @brown;
-        border-bottom-color: mix(@yellow, #d3d3d3, 90%);
-        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    }
-    }
-
-    .box-item {
-        margin-left: -0.85%;
-        zoom: 1; overflow: hidden;
-        background: transparent;
-        margin-top: 2em;
-        //  div:nth-child(3n) { margin-right: 0 }
-        .boxy {
-            background: transparent;
-            position: relative;
-            width: 330px;
-            float: left;
-            padding-top: 30px;
-            display: block;
-            margin-left: 0.85%;
-            margin-right: 0.85%;
-            text-align: center;
-            .name, .price { opacity: 0.7; }
-
-            .name {
-                margin-top: 10px;
-                font-family: "Attentica";
-                color: @brown;
-                font-size: 34px;
-            }
-
-            .price {
-                display:inline-block;
-                position: absolute;
-                width: 260px;
-                top: 15px;
-                left: 30px;
-                opacity: 1;
-                font-family: 'Open Sans';
-                font-weight: 400;
-                padding: 12px;
-                color: mix(#fff, #d9c3a8, 60%);
-                text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
-                font-size: 56px;
-                span {
-                    font-family: 'PT Sans';
-                    font-weight: 300;
-                    font-size: 45px;
-                    padding-left: 10px;
-                }
-            }
-
-            .img-thumb {
-                position: relative;
-                overflow:hidden;
-                width: 320px;
-                height: 210px;
-                border-radius: 15px;
-                background-position: 0px -2px;
-                box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
-                overflow: hidden; text-align:center;
-             //   background: mix(@brown, #fff, 40%);
-            }
-
-            .cart {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                overflow: hidden;
-                border-radius: 15px;
-                   a {
-                    display: block;
-                    position: absolute;
-                    right: 30px;
-                    bottom: 30px;
-                    padding: 12px;
-                    width: 60px;
-                    i {
-                        font-size:29px;
-                    }
-                    background: #d9c3a8;
-                    border-bottom: 3px solid mix(#d9c3a8, @brown, 70%);
-                    border-radius: 8px;
-                    color:@brown;
-                    &:hover {
-                        background: mix(#d9c3a8, #fff, 80%);
-                        color: @brown;
-                        border-bottom-color: mix(#d9c3a8, #666, 90%);
-                        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-                    }
-                }
-                position: absolute;
-                top: 0px; left: 0;
-                height: 100%;
-                width: 100%;
-                opacity:0;
-                background: fade(@brown, 50%);
-                padding: 45px 60px;
-                .btn-cart {
-                    font-size: 20px;
-                    font-size:26px;
-                    background: @yellow;
-                    border-bottom: 3px solid mix(@yellow, #000, 85%);
-                    font-family: 'Bebas Neue';
-                    text-transform: uppercase;
-                    padding: 8px 0px 8px 0px;
-                    display: block;
-                    color: @brown;
-                    cursor: pointer;
-                    i { margin-right: 20px;}
-                    width: 180px;
-                    position: absolute;
-                    bottom: 30px;
-                    left: 30px;
-                    border-radius: 8px;
-                    transition: 0.8s ease-in-out all;
-                    &:hover {
-                        background: mix(@yellow, #fff, 80%);
-                        color: @brown;
-                        border-bottom-color: mix(@yellow, #d3d3d3, 90%);
-                        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-                    }
-                }
-            }
-
-        }
-    }
     .top-nav {
         background: rgba(40,27,27,0.8);
         height: 115px;
@@ -281,71 +95,51 @@
         width: 100%;
     }
 
-    .slider-default {
-        .sl-slider-wrapper {
-            width: 100%;
-            height: 800px;
-            overflow: hidden;
-            position: relative;
-        }
-        .sl-slider {
-            h2 {
-                font-size: 100px;
-                text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
-            }
-        }
-    }
-    .slider-default .sl-slider h2,.slider-default .sl-slider blockquote {
-        padding: 10px 30px 10px 30px;
-        width: 80%;
-        max-width: 500px;
-        border-radius: 8px;
-        margin-top: 260px;
-        float: right;
-        margin-right: 20%;
-        position: relative;
-        z-index: 100;
-    }
-
-    .slider-default {
-        .sl-slider {
-            blockquote {
-                h3 {
-                    font-family: @font-header;
-                    font-size: 20pt;
-                    margin-top:0;
-                }
-                font-family: @font-subheader;
-                padding-top: 15px;
-                border-radius: 8px;
-                padding-bottom: 25px;
-                background: #dcc6ab;
-                border-bottom: 8px solid #a48a6b;
-                border-left: 0;
-                box-shadow: 0 2px 18px rgba(0,0,0,0.6);
-                p {
-                font-style:italic;
-                font-size: 22px;
-                color: #422c25;
-                }
-            }
-        }
-    }
-
-    body {
-        padding: 0px;
-    }
-    .slider-container {
-        width: 100%;
-        height: 600px;
-        position: relative;
-
-    }
     #footer, #powered { display: none }
-        /* menu */
+
+    #sidePanelToggle {
+        .toggle {
+            i {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    #rightPanelToggle {
+
+        text-align: right;
+        .toggle {
+            margin-right: 2em !important;
+            i {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    #sidePanelToggle .toggle, #rightPanelToggle .toggle
+    {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 8px 15px;
+        color: #fff;
+        font-family: 'Open Sans Condensed';
+        text-transform: uppercase;
+        font-size: 23px;
+        font-weight: 400;
+        background: rgba(57,43,37,0.7);
+        border-radius: 0.35em;
+
+    }
+
+
+    // top menu
+
     #menu {
-        opacity: 0.6;
-        background: mix(@brown, #ccc, 80%);
+        opacity: 0.8;
+        background: @panel-color;
         height: 53px;
         z-index:666;
         position: fixed;
@@ -440,4 +234,181 @@
     }
     #menu > ul > li > div > ul > li > a {
         color: #FFFFFF;
+    }
+
+    // left panel
+            .level-2 .item span {
+                height: 40px !important;
+                padding-top: 1px !important;
+            }
+    @color-hover-bg: mix(@panel-color, mix(@red-dark, #666, 50%), 60%);
+    #left-panel {
+        position: fixed;
+        z-index: 667;
+        top: 0;
+        left: 0;
+        padding-top: 0px;
+        width: 350px;
+        height: 100%;
+        color: #fff;
+        background: mix(@brown, #666, 70%);
+        text-align: right;
+     //   border-right: 4px solid mix(@panel-color, mix(@red-dark, #666, 50%), 50%);
+
+        box-shadow: inset -3px 0 3px rgba(0,0,0,0.1);
+        .box-sub-child {
+            .item { padding: 3px 45px !important;
+            font-size: 23px !important; }
+        }
+
+        ul {
+            list-style: none;
+            width: 100%;
+            padding-left: 0;
+            li {
+                position: relative;
+                width: 100%;
+            }
+        }
+
+        .logo {
+            width: 282px;
+            height: 242px;
+            margin: 20px auto;
+            background: url(../image/logo.png) center center no-repeat;
+            margin-bottom: 20px;
+        }
+
+        .box-child, .box-sub-child {
+            display:inline-block;
+            width: 100%;
+            list-style: none;
+            padding-top: 0px;
+            box-shadow: inset 0 -2px 12px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+
+            &.level-1 {
+                background: mix(@panel-color, #000,80%) !important;
+                border-bottom: 2px dashed mix(@red-dark, #666,50%) !important;
+            }
+
+            &.level-2 {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                background: mix(@panel-color, #000,65%) !important;
+                border-bottom: 2px dashed mix(@red-dark, #666,30%) !important;
+                .item {
+                    font-weight: 400;
+                    color: desaturate(darken(mix(@gray, #fff, 70%), 15%), 5%);
+                }
+            }
+
+        }
+
+        .btn-dropdown {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            padding: 8px;
+            text-align:center;
+         //  background: mix(@panel-color, #000,75%);
+            height: 48px;
+            width: 50px;
+            text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: 0.5s ease-in all;
+            i {
+              font-size: 33px;
+              color: fade(mix(@gray, #fff, 40%), 60%);
+              transition: 0.5s ease-in all;
+            }
+            &:hover {
+                background: fade(@gray, 10%);
+                text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+                i {
+                    color: #fff;
+                }
+            }
+        }
+
+        .item {
+            text-align: left;
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            padding: 8px 25px;
+            font-family: 'Bebas Neue';
+            font-size: 25px;
+            color: mix(@gray, #fff, 60%);
+            transition: 0.6s ease-in-out all;
+               text-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+            &.sub-parent {
+                padding-right: 65px !important;
+            }
+            .hint-1 {
+                opacity:0;
+                position: absolute;
+                right: -25px;
+                top: 8px;
+                background: @yellow;
+                box-shadow: 0px 1px 6px rgba(0,0,0,0.3);
+                border-bottom: 2px solid darken(@yellow, 15%);
+                border-radius: 50px;
+                height: 33px;
+                width: 33px;
+                text-align: center;
+                color: @brown;
+                padding-top:0px;
+            }
+
+            span {
+                -webkit-transform-origin: 0% 0%;
+                opacity:0;
+                position: absolute;
+                right: -120px;
+                top: 0px;
+                background: darken(@color-hover-bg,8%);
+                border-bottom: 3px solid darken(@panel-color, 8%);
+                box-shadow: 6px 2px 8px rgba(0,0,0,0.35);
+                // background: mix(@yellow, #666, 90%);
+                // border-bottom: 3px solid darken(@yellow, 15%);
+                // color: @brown;
+
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                height: 51px;
+                width: 120px;
+                text-align: center;
+                color: mix(@gray, #fff, 60%);
+                padding-top:6px;
+
+            }
+            &.parent {
+               // background: mix(@red-dark, #666, 50%);
+               // background: mix(@brown, #fff, 80%);
+                margin-bottom: 0px; margin-top: 0px;
+                &.active {
+                background: mix(@red-dark, #666,60%) !important;
+                }
+            }
+            &.child {
+               text-align: left;
+               font-size:23px;
+               padding: 8px 30px;
+               color: mix(@gray, #fff, 90%);
+
+                &.active {
+                    box-shadow: inset 0 1px 6px rgba(0,0,0,0.3);
+                    background: darken(mix(@red-dark, #666,60%), 6%) !important;
+                }
+                i { background: mix(@red-dark, #666,75%) !important; }
+            }
+
+            &:hover {
+                text-decoration: none;
+                background: @color-hover-bg;
+            }
+        }
     }

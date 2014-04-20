@@ -1,0 +1,147 @@
+
+    .btn-cart {
+        font-size: 20px;
+        font-size:29px;
+        background: @yellow;
+        outline: 0;
+        border: 0;
+        border-bottom: 3px solid mix(@yellow, #000, 85%);
+        font-family: 'Bebas Neue';
+        text-transform: uppercase;
+        padding: 8px 0px 8px 0px;
+        display: block;
+        color: @brown;
+        cursor: pointer;
+        i { margin-right: 20px;}
+        width: 180px;
+        border-radius: 8px;
+        transition: 0.8s ease-in-out all;
+        &:hover {
+            background: mix(@yellow, #fff, 80%);
+            color: @brown;
+            border-bottom-color: mix(@yellow, #d3d3d3, 90%);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+    }
+
+    .box-item {
+        margin-left: -0.85%;
+        zoom: 1; overflow: hidden;
+        background: transparent;
+        margin-top: 1em;
+        //  div:nth-child(3n) { margin-right: 0 }
+        .boxy {
+            background: transparent;
+            position: relative;
+            width: 330px;
+            float: left;
+            padding-top: 30px;
+            display: block;
+            margin-left: 0.85%;
+            margin-right: 0.85%;
+            text-align: center;
+            .name, .price { opacity: 0.7; }
+
+            .name {
+                margin-top: 10px;
+                font-family: "Attentica";
+                color: @brown;
+                font-size: 34px;
+            }
+
+            .price {
+                display:inline-block;
+                position: absolute;
+                width: 260px;
+                top: 15px;
+                left: 30px;
+                opacity: 1;
+                font-family: 'Open Sans';
+                font-weight: 400;
+                padding: 12px;
+                color: mix(#fff, #d9c3a8, 60%);
+                text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+                font-size: 56px;
+                span {
+                    font-family: 'PT Sans';
+                    font-weight: 300;
+                    font-size: 45px;
+                    padding-left: 10px;
+                }
+            }
+
+            .img-thumb {
+                position: relative;
+                overflow:hidden;
+                width: 320px;
+                height: 210px;
+                border-radius: 15px;
+                background-position: 0px -2px;
+                box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+                overflow: hidden; text-align:center;
+             //   background: mix(@brown, #fff, 40%);
+            }
+
+            .cart {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 15px;
+                   a {
+                    display: block;
+                    position: absolute;
+                    right: 30px;
+                    bottom: 30px;
+                    padding: 12px;
+                    width: 60px;
+                    i {
+                        font-size:29px;
+                    }
+                    background: #d9c3a8;
+                    border-bottom: 3px solid mix(#d9c3a8, @brown, 70%);
+                    border-radius: 8px;
+                    color:@brown;
+                    &:hover {
+                        background: mix(#d9c3a8, #fff, 80%);
+                        color: @brown;
+                        border-bottom-color: mix(#d9c3a8, #666, 90%);
+                        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+                    }
+                }
+                position: absolute;
+                top: 0px; left: 0;
+                height: 100%;
+                width: 100%;
+                opacity:0;
+                background: fade(@brown, 50%);
+                padding: 45px 60px;
+                .btn-cart {
+                    font-size: 20px;
+                    font-size:26px;
+                    background: @yellow;
+                    border-bottom: 3px solid mix(@yellow, #000, 85%);
+                    font-family: 'Bebas Neue';
+                    text-transform: uppercase;
+                    padding: 8px 0px 8px 0px;
+                    display: block;
+                    color: @brown;
+                    cursor: pointer;
+                    i { margin-right: 20px;}
+                    width: 180px;
+                    position: absolute;
+                    bottom: 30px;
+                    left: 30px;
+                    border-radius: 8px;
+                    transition: 0.8s ease-in-out all;
+                    &:hover {
+                        background: mix(@yellow, #fff, 80%);
+                        color: @brown;
+                        border-bottom-color: mix(@yellow, #d3d3d3, 90%);
+                        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+                    }
+                }
+            }
+
+        }
+    }

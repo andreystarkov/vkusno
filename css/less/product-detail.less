@@ -1,0 +1,237 @@
+
+    .box-product-detail {
+        h1 {
+            font-family: @font-header;
+            font-size: 50px;
+            margin-bottom: 40px;
+            color: mix(@brown, @red, 80%);
+        }
+    }
+
+    .product-info {
+        .box-buy { margin: 0 auto; height: 60px; }
+        .box-price {
+            overflow: hidden;
+            zoom: 1;
+            color: mix(@brown, @red, 70%);
+            div {
+                width: 120px;
+                float: left;
+                &:first-child {
+                    float: left; margin-right: 40px;
+                    p { font-weight: 600; color: @red-dark; }
+                }
+                span { font-family: 'PT Sans'; padding-left: 10px; font-size: 27px; }
+                b {
+                    font-weight: normal;
+                    font-family: 'Bebas Neue';
+                    font-size: 36px;
+                    color: mix(@brown, @red, 70%);
+                }
+
+                p {
+                    font-size: 40px;
+                    font-family: 'Open Sans';
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .box-description {
+            width: 100%;
+            padding-top: 0px;
+            h3 {
+                font-family: "Bebas Neue";
+                font-size: 36px;
+                color: mix(@brown, @red, 70%);
+            }
+
+            a {
+                font-size:26px;
+                font-family: @font-subheader;
+                font-style:italic;
+                border-bottom: 1px dashed mix(#7b4b43, #ddd, 50%);
+                color: mix(@brown, #ddd, 90%);
+                &:hover {
+                    border-bottom: 1px solid mix(#7b4b43, #ddd, 90%);
+                    text-decoration: none;
+                }
+            }
+
+            p {
+                line-height: 1.1;
+                padding-right: 20%;
+                font-family: @font-text;
+                font-size: 26px;
+                font-family: @font-subheader;
+                font-style: italic;
+                &:first-letter {
+                text-transform: uppercase;
+                }
+            }
+
+        }
+        margin-bottom: 20px;
+
+        .left {
+            float: left;
+            margin-right: 40px;
+        }
+
+        .right {
+            padding-right: 40px;
+            padding-left: 40px;
+        }
+
+        .image {
+            border-radius: 3px;
+            float: left;
+            margin-bottom: 20px;
+            margin-top:5px;
+            padding: 0px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+
+        .image-additional {
+            width: 260px;
+            margin-left: -10px;
+            clear: both;
+            overflow: hidden;
+            img {
+            border: 5px solid rgba(0,0,0,0.1);
+            }
+            a {
+                float: left;
+                display: block;
+                margin-left: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .description {
+            border-top: 1px solid #E7E7E7;
+            border-bottom: 1px solid #E7E7E7;
+            padding: 5px 5px 10px 5px;
+            margin-bottom: 10px;
+            line-height: 20px;
+            color: mix(@brown, #666, 80%);
+            font-size: 18px;
+            font-family: @font-text;
+            span {
+                color: @red-dark;
+                margin-top: 25px;
+                display: block;
+                margin-bottom: 15px;
+                font-size: 28px;
+                font-family: @font-subheader;
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+
+            a {
+                font-family: @font-text;
+                font-size: 18px;
+                color: #4D4D4D;
+                text-decoration: none;
+            }
+        }
+
+        .price {
+            overflow: auto;
+            border-bottom: 1px solid #E7E7E7;
+            padding: 0px 5px 10px 5px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #333333;
+            .reward {
+                font-size: 12px;
+                font-weight: normal;
+                color: #999;
+            }
+            .discount {
+                font-weight: normal;
+                font-size: 12px;
+                color: #4D4D4D;
+            }
+        }
+
+        .price-old {
+            color: #F00;
+            text-decoration: line-through;
+        }
+        .price-tax {
+            font-size: 12px;
+            font-weight: normal;
+            color: #999;
+        }
+        .options {
+            border-bottom: 1px solid #E7E7E7;
+            padding: 0px 5px 10px 5px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        .option-image {
+            margin-top: 3px;
+            margin-bottom: 10px;
+            label {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            img {
+                margin-right: 5px;
+                border: 1px solid #CCCCCC;
+                cursor: pointer;
+            }
+        }
+        .cart {
+            border-bottom: 1px solid #E7E7E7;
+            padding: 0px 5px 10px 5px;
+            margin-bottom: 20px;
+            color: #4D4D4D;
+            div {
+                & > span {
+                    color: #999;
+                }
+            }
+            .links {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .minimum {
+                padding-top: 5px;
+                font-size: 11px;
+                color: #999;
+            }
+        }
+        .review {
+            color: #4D4D4D;
+            border-top: 1px solid #E7E7E7;
+            border-left: 1px solid #E7E7E7;
+            border-right: 1px solid #E7E7E7;
+            margin-bottom: 10px;
+            & > div {
+                padding: 8px;
+                border-bottom: 1px solid #E7E7E7;
+                line-height: 20px;
+                & > span {
+                    color: #38B0E3;
+                }
+            }
+            .share {
+                overflow: auto;
+                line-height: normal;
+                a {
+                    text-decoration: none;
+                }
+            }
+    }
+}
+
+

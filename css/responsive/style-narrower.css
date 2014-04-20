@@ -1,0 +1,15 @@
+        #column-left { display: none; }
+        #box-container { padding-left: 40px;}
+
+        #slider-wrapper { padding-left: 0px; }
+
+        #left-panel .logo { margin: 0 auto;}
+        #left-panel .item {
+            padding: 6px 15px;
+            font-family: 'Bebas Neue';
+            font-size: 20px;
+        }
+        #menu { display: none; }
+
+        #left-panel .item.child { padding: 6px 15px; }
+        #left-panel { width: 300px;}
