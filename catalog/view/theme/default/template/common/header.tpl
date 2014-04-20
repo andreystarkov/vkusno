@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="/fonts/hagincaps/font.css">
         <link rel="stylesheet" type="text/css" href="/css/fullwidth-slider.css" />
-
+        <link rel="stylesheet" type="text/css" href="/css/tooltipster.css" />
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="/js/vendor/bootstrap.min.js"></script>
@@ -39,7 +39,7 @@
         <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
         <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
         <script type="text/javascript" src="/js/jquery.transit.min.js"></script>
-
+        <script type="text/javascript" src="/js/jquery.tooltipster.min.js"></script>
         <script type="text/javascript" src="/js/snap.svg-min.js"></script>
         <script type="text/javascript" src="/js/slider.js"></script>
         <script type="text/javascript" src="/js/hovers.js"></script>
@@ -88,54 +88,108 @@
 
         <script>
           $(function(){
-              $('#left-panel .item span').each(function(){
-                $(this).append(' товаров');
-              });
 
-              $('#left-panel .btn-dropdown').click(function(){
-                var link = $('.sub-parent', $(this).parent());
+              $('.tooltip').tooltipster();
 
-                var id = link.attr('data-id');
-                var box = '.sub-child-'+id;
-
-                $('i', this).transition({rotate: '+=180deg'});
-                if(link.hasClass('active')){
-                  $('.sub-parent').removeClass('active opened');
-                  $('#left-panel .logo').transition({height: '242px'});
-                  $(box).slideUp();
-                } else {
-                  $('.sub-parent').removeClass('active opened');
-                  $('.box-sub-child').slideUp();
-                  link.addClass('active opened');
-                  $('#left-panel .logo').transition({height: '0px'}, 100);
-
-                  $(box).slideDown();
-               }
-
-
-            });
               $('.box-child').hide();
               $('.box-sub-child').hide();
 
-              <? if(!empty($paths[0])){ ?>
-                var selector = '.box-child-'+<? echo $paths[0]; ?>;
-                var active = '.id-<? echo $paths[1]; ?>';
-                $('.parent-<? echo $paths[0]; ?>').addClass('active opened');
-                <? if(!empty($paths[1])){ ?>
-                  $(active).addClass('active');
-                <? } ?>
-                $(selector).slideToggle();
+              $('.child').each(function(){
+                $(this).append('<b class="fa this fa-angle-double-right"></b>');
+              });
 
-                var selector1 = '.sub-child-<? echo $paths[1]; ?>';
-                $(selector1).slideToggle();
+              function toggleNavSubCategory(obj){
+                var link = $('.sub-parent', obj.parent());
+                var id = link.attr('data-id');
+                var box = '.sub-child-'+id;
+                var sub = '<? echo $paths[1]; ?>';
+
+                 if(link.hasClass('opened')){
+                  $('i', obj).transition({rotate: '0deg'}, 600);
+                  $('.sub-parent').removeClass('opened');
+                  $('#left-panel .logo').transition({height: '242px'});
+                  $(box).slideUp();
+                } else {
+                  $('i', obj).transition({rotate: '180deg'}, 600);
+                  $('.sub-parent').removeClass('opened');
+                  $('.box-sub-child').slideUp(200);
+                  link.addClass('opened');
+                  if (sub == id) { link.addClass('active'); }
+                  $('#left-panel .logo').transition({height: '0px'}, 100);
+                  $(box).slideDown(500);
+               }
+              }
+
+              function toggleNavCategory(obj){
+                  var id = obj.attr('data-id');
+                  var selector = '.box-child-'+id;
+                  if(obj.hasClass('opened')){
+                    $('.sub-parent').removeClass('opened');
+                    $('.parent').removeClass('opened');
+                    $('#left-panel .logo').transition({height: '242px'});
+                    $('.box-child').slideUp();
+                  } else {
+                    $('.parent').removeClass('opened');
+                    $('.box-child').slideUp();
+                    $('#left-panel .logo').transition({height: '242px'});
+                    obj.addClass('opened');
+                    $(selector).slideToggle();
+                 }
+              }
+
+
+          $('#left-panel .parent').click(function(){
+                toggleNavCategory($(this));
+          });
+
+              $('#left-panel .btn-dropdown').click(function(){
+                  toggleNavSubCategory($(this));
+            });
+
+              <? if(!empty($paths[0])){ ?>
+                  var selector = '.parent-'+<? echo $paths[0]; ?>;
+                  toggleNavCategory($(selector));
+
+                  var selector1 = '.id-'+<? echo $paths[1]; ?>;
+                  if( $(selector1).attr('data-id') ==  <? echo $paths[1]; ?> ) {
+                    $(selector1).addClass('active');
+             //         toggleNavSubCategory($(selector1));
+                  }
+
               <? } ?>
+              $('.hover-info').tooltipster({
+                 animation: 'swing',
+                 delay: 300,
+                 position: 'bottom',
+                 theme: 'tooltipster-punk',
+                 touchDevices: false,
+                 trigger: 'hover'
+              });
+              $('.tip-info').tooltipster({
+                 animation: 'fade',
+                 delay: 200,
+                 theme: 'tooltipster-noir',
+                 touchDevices: false,
+                 trigger: 'hover'
+              });
             });
         </script>
 </head>
 <body>
 
+<?php if ($categories) { ?>
+<div id="menu">
+  <ul>
+        <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a</li>
+    <li><a href="<?php echo $home; ?>"><i class="fa fa-home"></i></a></li>
+    <li><a href="<?php echo $shopping_cart; ?>"><i class="fa fa-shopping-cart"></i></a></li>
+    <li><a href="<?php echo $account; ?>"><i class="fa fa-user"></i></a></li>
+
+  </ul>
+</div>
+<?php } ?>
     <div id="left-panel" id="nav-main">
-      <div class="logo"></div>
+      <div class="logo tip-info" title="sadasdsadsadsa" ></div>
       <?php if ($categories) {
         ?>
         <?php foreach ($categories as $category) { ?>
@@ -206,17 +260,6 @@
       <?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
   </div>-->
 
-<?php if ($categories) { ?>
-<div id="menu">
-  <ul>
-    <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
-    <li><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></li>
-    <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
-    <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a</li>
-    <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-  </ul>
-</div>
-<?php } ?>
 <?php if ($error) { ?>
 
     <div class="warning"><?php echo $error ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
