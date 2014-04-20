@@ -22,7 +22,7 @@
           var hoverAnimation = 0;
 
         $('.box-item div').hover(function(){
-         //   $(this).transition({rotateX: '-5deg', perspective: '450px'});
+          //   $(this).transition({rotateX: '-5deg', perspective: '450px'});
             $('.price', this).transition({y:'0px', scale: '1'}, 500);
             $('a', this).transition({y:'200px'}, 10);
             $('.cart', this).transition({boxShadow: 'inset 0 -15px 40px rgba(0,0,0,0.3)',opacity: 1},500);

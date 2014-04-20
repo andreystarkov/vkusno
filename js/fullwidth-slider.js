@@ -67,6 +67,9 @@
 
                 var onEndAnimationCurrentItem = function() {
                     this.removeEventListener( animEndEventName, onEndAnimationCurrentItem );
+                    var caption = $(this).attr('data-caption');
+                    $('.slider-caption').slideUp();
+                    $('#'+caption).slideDown();
                     classie.removeClass( this, 'current' );
                     classie.removeClass( this, dir === 'next' ? 'navOutNext' : 'navOutPrev' );
                     ++cntAnims;
@@ -74,6 +77,7 @@
                         isAnimating = false;
                     }
                     changeEffect();
+
                 }
 
                 var onEndAnimationNextItem = function() {

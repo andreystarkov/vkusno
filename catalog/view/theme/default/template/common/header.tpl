@@ -138,9 +138,9 @@
               }
 
 
-          $('#left-panel .parent').click(function(){
-                toggleNavCategory($(this));
-          });
+              $('#left-panel .parent').click(function(){
+                    toggleNavCategory($(this));
+              });
 
               $('#left-panel .btn-dropdown').click(function(){
                   toggleNavSubCategory($(this));
@@ -156,6 +156,8 @@
                      toggleNavSubCategory($(selector1));
                   }
 
+              <? } else { ?>
+                    toggleNavCategory($('.parent-104'));
               <? } ?>
               $('.hover-info').tooltipster({
                  animation: 'swing',
@@ -180,8 +182,6 @@
                   <?
               }
               ?>
-
-
             });
         </script>
 </head>
@@ -234,11 +234,31 @@
     </div>
 
   <div id="slider-wrapper">
+
+      <div class="slider-caption" id="caption-1">
+        <h3>Мексиканская горячая мясная тарелка.</h3>
+        <i>Говяжья вырезка, жареное яйцо, пикантные овощи c перцем чили. Соломенное сомбрэро и шот текилы в подарок.</i>
+        <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
+      </div>
+
+      <div class="slider-caption" id="caption-2">
+        <h3>Говяжья вырезка, жареное яйцо, пикантные овощи.</h3>
+        <i>Мексиканская горячая мясная тарелка. Соломенное сомбрэро и шот текилы в подарок.</i>
+        <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
+      </div>
+
+      <div class="slider-caption" id="caption-3">
+        <h3>Соломенное сомбрэро и шот текилы в подарок.</h3>
+        <i>Говяжья вырезка, жареное яйцо, пикантные овощи c перцем чили. Мексиканская горячая мясная тарелка </i>
+        <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
+      </div>
      <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
       <ul class="itemwrap">
-        <li class="current"><img src="/images/1.jpg" alt="img06"/></li>
-        <li><img src="/images/2.jpg" alt="img07"/></li>
-        <li><img src="/images/2.jpg" alt="img08"/></li>
+        <li data-caption="caption-1" class="current caption-1"><img src="/images/1.jpg" alt="img06"/></li>
+        <li data-caption="caption-2" class="caption-2"><img src="/images/2.jpg" alt="img07"/></li>
+        <li data-caption="caption-3" class="caption-3"><img src="/images/2.jpg" alt="img08"/>
+
+        </li>
       </ul>
       <nav>
         <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>
