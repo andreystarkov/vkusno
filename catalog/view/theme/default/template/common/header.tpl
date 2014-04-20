@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
-<head>
+<html dir="ltr" lang="ru">
 <meta charset="UTF-8" />
         <title><?php echo $title; ?></title>
         <base href="<?php echo $base; ?>" />
@@ -76,11 +75,12 @@
         <![endif]-->
         <?php if ($stores) { ?>
         <script type="text/javascript"><!--
+        /*
         $(document).ready(function() {
         <?php foreach ($stores as $store) { ?>
         $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
         <?php } ?>
-        });
+        }); */
         //--></script>
         <?php } ?>
         <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
@@ -107,7 +107,7 @@
                  if(link.hasClass('opened')){
                   $('i', obj).transition({rotate: '0deg'}, 600);
                   $('.sub-parent').removeClass('opened');
-                  $('#left-panel .logo').transition({height: '242px'});
+                  $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
                   $(box).slideUp();
                 } else {
                   $('i', obj).transition({rotate: '180deg'}, 600);
@@ -115,7 +115,7 @@
                   $('.box-sub-child').slideUp(200);
                   link.addClass('opened');
                   if (sub == id) { link.addClass('active'); }
-                  $('#left-panel .logo').transition({height: '0px'}, 100);
+                  $('#left-panel .logo').transition({height: '90px', backgroundImage: 'url(/images/m.png)'}, 100);
                   $(box).slideDown(500);
                }
               }
@@ -126,12 +126,12 @@
                   if(obj.hasClass('opened')){
                     $('.sub-parent').removeClass('opened');
                     $('.parent').removeClass('opened');
-                    $('#left-panel .logo').transition({height: '242px'});
+                    $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
                     $('.box-child').slideUp();
                   } else {
                     $('.parent').removeClass('opened');
                     $('.box-child').slideUp();
-                    $('#left-panel .logo').transition({height: '242px'});
+                    $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
                     obj.addClass('opened');
                     $(selector).slideToggle();
                  }
@@ -153,7 +153,7 @@
                   var selector1 = '.id-'+<? echo $paths[1]; ?>;
                   if( $(selector1).attr('data-id') ==  <? echo $paths[1]; ?> ) {
                     $(selector1).addClass('active');
-             //         toggleNavSubCategory($(selector1));
+                     toggleNavSubCategory($(selector1));
                   }
 
               <? } ?>
@@ -166,30 +166,42 @@
                  trigger: 'hover'
               });
               $('.tip-info').tooltipster({
-                 animation: 'fade',
+                 animation: 'fall',
                  delay: 200,
-                 theme: 'tooltipster-noir',
+                 position: 'bottom',
+                 theme: 'tooltipster-punk',
                  touchDevices: false,
                  trigger: 'hover'
               });
+              <?  $cart_contents = $this->cart->countProducts();
+                  if ($cart_contents > 0){
+                  ?>
+                    $('.btn-cart-icon').addClass('cart-full');
+                  <?
+              }
+              ?>
+
+
             });
         </script>
 </head>
 <body>
 
 <?php if ($categories) { ?>
-<div id="menu">
-  <ul>
-        <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a</li>
-    <li><a href="<?php echo $home; ?>"><i class="fa fa-home"></i></a></li>
-    <li><a href="<?php echo $shopping_cart; ?>"><i class="fa fa-shopping-cart"></i></a></li>
-    <li><a href="<?php echo $account; ?>"><i class="fa fa-user"></i></a></li>
 
-  </ul>
-</div>
+    <div id="menu">
+      <ul>
+        <li><a class="btn-go" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></li>
+        <li><a class="tip-info" title="Перейти на главную страницу", href="<?php echo $home; ?>"><i class="fa fa-home"></i></a></li>
+        <li><a class="tip-info btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
+          <i class="fa fa-shopping-cart"></i> <span><? echo $cart_contents; ?></span></a></li>
+        <li><a class="tip-info" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a></li>
+      </ul>
+    </div>
 <?php } ?>
     <div id="left-panel" id="nav-main">
-      <div class="logo tip-info" title="sadasdsadsadsa" ></div>
+      <div class="logo"><a href="index.php"></a></div>
+
       <?php if ($categories) {
         ?>
         <?php foreach ($categories as $category) { ?>

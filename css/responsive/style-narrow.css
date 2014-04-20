@@ -1,7 +1,7 @@
         #left-panel { width: 290px; }
         #box-container { padding-left: 340px;}
         #slider-wrapper { padding-left: 290px; }
-
+        .product-filter { display: none;}
         #leftPanelButton .toggle,
         #rightPanelButton .toggle {
         display: block;

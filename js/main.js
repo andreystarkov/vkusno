@@ -22,6 +22,7 @@
           var hoverAnimation = 0;
 
         $('.box-item div').hover(function(){
+         //   $(this).transition({rotateX: '-5deg', perspective: '450px'});
             $('.price', this).transition({y:'0px', scale: '1'}, 500);
             $('a', this).transition({y:'200px'}, 10);
             $('.cart', this).transition({boxShadow: 'inset 0 -15px 40px rgba(0,0,0,0.3)',opacity: 1},500);
@@ -31,6 +32,7 @@
             $('.name', this).transition({opacity:'1'}, 500);
 
         },function(){
+        //  $(this).transition({rotateX: '0deg', perspective: '450px'});
           $('.cart', this).transition({boxShadow: 'inset 0 0px 0px rgba(0,0,0,0)', opacity: 0},300);
           $('.price', this).transition({y:'-150px', scale: '0.1'}, 10);
           $('.btn-cart', this).transition({y:'200px'}, 200);

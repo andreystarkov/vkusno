@@ -46,8 +46,29 @@
 
     a { color: desaturate(@red, 15%); text-decoration: none }
     a:hover { text-decoration: none }
-    #box-content {
 
+    body {
+        background: #e2d9cd !important;
+    }
+
+    a { transition: 0.5s ease-in-out all; }
+
+    #box-content {
+        padding-top:60px;
+        width:100%;
+        padding-bottom: 100px;
+        padding-right: 40px;
+        h1 {
+        font-family: @font-header; font-size: 62px; color:fade(@brown, 80%);
+        }
+        h2 {
+        font-family: @font-header; font-size: 37px; color:fade(@brown,70%);
+        }
+        h3 {
+            font-family: @font-subheader; font-size: 30px; color:fade(@brown,90%);
+            font-style: italic; font-weight: 400;
+
+        }
     }
 
     #slider-wrapper {}
@@ -182,30 +203,6 @@
 
     }
 
-    body {
-        background: #e2d9cd !important;
-    }
-
-    a { transition: 0.5s ease-in-out all; }
-
-    #box-content {
-        padding-top:40px;
-        width:100%;
-        padding-bottom: 100px;
-        padding-right: 40px;
-        h1 {
-        font-family: @font-header; font-size: 62px; color:fade(@brown, 80%);
-        }
-        h2 {
-        font-family: @font-header; font-size: 37px; color:fade(@brown,70%);
-        }
-        h3 {
-            font-family: @font-subheader; font-size: 30px; color:fade(@brown,90%);
-            font-style: italic; font-weight: 400;
-
-        }
-    }
-
     #box-container {
         position: relative;
         padding-top: 10px;
@@ -286,9 +283,42 @@
     }
 
 
-
+    #top-icons {
+        width: 100%;
+        list-style: none;
+        li { display: block; float: left; position: relative; }
+    }
     // top menu
 
+    .btn-cart-icon {
+        position: relative;
+        span {
+            opacity:0;
+            position: absolute;
+            font-size: 20px;
+            font-weight: 600;
+            background: @color-yellow;
+            border-bottom: 4px solid darken(@color-yellow, 10%);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+            top: 45px;
+            right: 8px;
+            border-radius: 50%;
+            margin-left:10px;
+            color: @brown;
+            font-family: @font-text;
+            padding: 10px 11px;
+            display: block;
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    .cart-full {
+        color: #fff !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        border-bottom: 4px solid @yellow;
+        background: @green;
+    }
     #menu {
         -webkit-transform: translateZ(0);
         opacity: 0.8;
@@ -402,6 +432,27 @@
         padding-top: 1px !important;
     }
     // #4d3d37
+    .btn-go {
+        padding: 18px 20px 19px 18px !important;
+    }
+
+    #slider-wrapper { display: none; }
+  /*  .btn-cart-icon {
+        width: 110px;
+        padding-top: 10px !important;
+        i { margin-top: 4px; }
+        span {
+            padding-left: 10px;
+            margin-top:-6px !impor;
+            font-size: 18px;
+            background: @color-yellow;
+            border-radius: 50%;
+            margin-left:10px;
+            padding: 4px 12px;
+       //     display: block; margin-left: 10px;
+        }
+    } */
+
 
     #left-panel {
         position: fixed;
@@ -436,6 +487,7 @@
 
         .logo {
             width: 282px;
+            a { display: block; width: 100%; height: 100%; }
             height: 242px;
             margin: 20px auto;
             background: url(../image/logo.png) center center no-repeat;
@@ -666,5 +718,158 @@
             &:first-letter {
                 text-transform:uppercase;
             }
+        }
+    }
+
+    /* catalog */
+
+
+    .btn-cart {
+        font-size: 20px;
+        font-size:29px;
+        background: @yellow;
+        outline: 0;
+        border: 0;
+        border-bottom: 3px solid mix(@yellow, #000, 85%);
+        font-family: @font-header;
+        text-transform: uppercase;
+        padding: 8px 0px 8px 0px;
+        display: block;
+        color: @brown;
+        cursor: pointer;
+        i { margin-right: 20px;}
+        width: 180px;
+        border-radius: 8px;
+        transition: 0.8s ease-in-out all;
+        &:hover {
+            background: mix(@yellow, #fff, 80%);
+            color: @brown;
+            border-bottom-color: mix(@yellow, #d3d3d3, 90%);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+    }
+
+    .box-item {
+        margin-left: -0.85%;
+        zoom: 1; overflow: hidden;
+        background: transparent;
+        margin-top: 1em;
+        //  div:nth-child(3n) { margin-right: 0 }
+        .boxy {
+            background: transparent;
+            position: relative;
+            width: 330px;
+            float: left;
+            padding-top: 30px;
+            display: block;
+            margin-left: 0.85%;
+            margin-right: 0.85%;
+            text-align: center;
+            .name, .price { opacity: 0.7; }
+
+            .name {
+                margin-top: 10px;
+                white-space: nowrap;
+                width: 320px;
+                overflow: hidden;
+                font-family: "Attentica";
+                color: @brown;
+                font-size: 34px;
+            }
+
+            .price {
+                display:inline-block;
+                position: absolute;
+                width: 260px;
+                top: 15px;
+                left: 30px;
+                opacity: 1;
+                font-family: 'Open Sans';
+                font-weight: 400;
+                padding: 12px;
+                color: mix(#fff, #d9c3a8, 60%);
+                text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+                font-size: 56px;
+                span {
+                    font-family: 'PT Sans';
+                    font-weight: 300;
+                    font-size: 45px;
+                    padding-left: 10px;
+                }
+            }
+
+            .img-thumb {
+                position: relative;
+                overflow:hidden;
+                width: 320px;
+                height: 210px;
+                border-radius: 15px;
+                background-position: 0px -2px;
+                box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+                overflow: hidden; text-align:center;
+             //   background: mix(@brown, #fff, 40%);
+            }
+
+            .cart {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 15px;
+                   a {
+                    display: block;
+                    position: absolute;
+                    right: 30px;
+                    bottom: 30px;
+                    padding: 12px;
+                    width: 60px;
+                    i {
+                        font-size:29px;
+                    }
+                    background: #d9c3a8;
+                    border-bottom: 3px solid mix(#d9c3a8, @brown, 70%);
+                    border-radius: 8px;
+                    color:@brown;
+                    &:hover {
+                        background: mix(#d9c3a8, #fff, 80%);
+                        color: @brown;
+                        border-bottom-color: mix(#d9c3a8, #666, 90%);
+                        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+                    }
+                }
+                position: absolute;
+                top: 0px; left: 0;
+                height: 100%;
+                width: 100%;
+                opacity:0;
+                background: fade(@brown, 50%);
+                padding: 45px 60px;
+                .btn-cart {
+                    font-size: 20px;
+                    font-size:26px;
+                    background: @yellow;
+                    border-bottom: 3px solid mix(@yellow, #000, 85%);
+                    font-family: @font-header;
+                    text-transform: uppercase;
+                    padding: 8px 0px 8px 0px;
+                    display: block;
+                    color: @brown;
+                    cursor: pointer;
+                    i { margin-right: 20px;}
+                    width: 180px;
+                    position: absolute;
+                    bottom: 30px;
+                    left: 30px;
+                    border-radius: 8px;
+                    transition: 0.8s ease-in-out all;
+                    &:hover {
+                        background: mix(@yellow, #fff, 80%);
+                        color: @brown;
+                        border-bottom-color: mix(@yellow, #d3d3d3, 90%);
+                        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+                    }
+                }
+            }
+
         }
     }
