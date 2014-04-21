@@ -109,8 +109,15 @@
               $('.box-child').hide();
               $('.box-sub-child').hide();
 
+
               $('.child').each(function(){
                 $(this).append('<b class="fa this fa-angle-double-right"></b>');
+              });
+              $('.jcarousel-next-horizontal').each(function(){
+                $(this).append('<i class="fa fa-angle-right"></i>');
+              });
+              $('.jcarousel-prev-horizontal').each(function(){
+                $(this).append('<i class="fa fa-angle-left"></i>');
               });
 
               function toggleNavSubCategory(obj){
@@ -292,9 +299,9 @@
       </div>
      <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
       <ul class="itemwrap">
-        <li data-caption="caption-1" class="current caption-1"><img src="/images/1.jpg" alt="img06"/></li>
-        <li data-caption="caption-2" class="caption-2"><img src="/images/2.jpg" alt="img07"/></li>
-        <li data-caption="caption-3" class="caption-3"><img src="/images/2.jpg" alt="img08"/>
+        <li data-caption="caption-1" class="current caption-1"><img src="/images/6.jpg" alt="img06"/></li>
+        <li data-caption="caption-2" class="caption-2"><img src="/images/7.jpg" alt="img07"/></li>
+        <li data-caption="caption-3" class="caption-3"><img src="/images/8.jpg" alt="img08"/>
 
         </li>
       </ul>
