@@ -1,7 +1,8 @@
     (function() {
 
         function rand(min, max){
-          return Math.floor(Math.random() * (max - min + 1)) + min;
+            return Math.floor((Math.random()*max)+min);
+//          return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
         var support = { animations : Modernizr.cssanimations },
@@ -44,9 +45,23 @@
             function changeEffect() {
                 var rnd = rand(0,effects.length);
                 var effect = effects[rnd];
+                $(component).attr('class', 'nice-slider nice-slider-fullwidth');
                 console.log(rnd+" = "+effect);
                 classie.addClass( component, effect );
                 showNav();
+            }
+
+           function captionChange(){
+                var captionEffects = [
+                    {rotate: '100deg', scale: 0.6, opacity: 0, y: '-500px'},
+                    {rotate: '30deg', scale: 0.8, opacity: 0, x: '-400px'},
+                    {scale: 6, rotateX: '60deg', perspective: '100px', rotateY: '30deg', opacity: 0, y: '300px', x: '500px'},
+                    {scale: 3, rotateX: '80deg', perspective: '170px', rotateY: '10deg', opacity: 0, x: '800px'},
+                    {y: '-500px', opacity:0},
+                    {x: '300px', opacity:0}
+                ];
+                var rnd = rand(0, captionEffects.length);
+                $('.slider-caption').transition(captionEffects[rnd], 800);
             }
 
             function navigate( dir ) {
@@ -63,13 +78,14 @@
                     current = current > 0 ? current - 1 : itemsCount - 1;
                 }
 
+                captionChange();
+
                 var nextItem = items[ current ];
 
                 var onEndAnimationCurrentItem = function() {
                     this.removeEventListener( animEndEventName, onEndAnimationCurrentItem );
-                    var caption = $(this).attr('data-caption');
-                    $('.slider-caption').slideUp();
-                    $('#'+caption).slideDown();
+                    var caption = $('#'+$(this).attr('data-caption'));
+                    $(caption).transition({rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700);
                     classie.removeClass( this, 'current' );
                     classie.removeClass( this, dir === 'next' ? 'navOutNext' : 'navOutPrev' );
                     ++cntAnims;

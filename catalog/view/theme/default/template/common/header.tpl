@@ -88,7 +88,22 @@
 
         <script>
           $(function(){
+   // $('.nav-items').css({position: 'fixed',top: '200px'});
+               $(window).scroll(function() {
 
+                //   $($(window).height();
+                  if($(this).scrollTop()>120){
+                  $('.nav-items').css({position: 'fixed',top: 15+$(this).scrollTop(), width: $('#left-panel').width()});
+                  }
+
+                  if($(this).scrollTop()<120){
+                    $('.nav-items').css({position: 'relative', top: '0px'});
+                  }
+         //         if($(this).scrollTop()>100){
+          //          $('.nav-items').css({position: 'fixed',top: '0'});
+           //       }
+
+                });
               $('.tooltip').tooltipster();
 
               $('.box-child').hide();
@@ -107,7 +122,7 @@
                  if(link.hasClass('opened')){
                   $('i', obj).transition({rotate: '0deg'}, 600);
                   $('.sub-parent').removeClass('opened');
-                  $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
+             //     $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
                   $(box).slideUp();
                 } else {
                   $('i', obj).transition({rotate: '180deg'}, 600);
@@ -115,7 +130,7 @@
                   $('.box-sub-child').slideUp(200);
                   link.addClass('opened');
                   if (sub == id) { link.addClass('active'); }
-                  $('#left-panel .logo').transition({height: '90px', backgroundImage: 'url(/images/m.png)'}, 100);
+         //         $('#left-panel .logo').transition({height: '90px', backgroundImage: 'url(/images/m.png)'}, 100);
                   $(box).slideDown(500);
                }
               }
@@ -126,12 +141,12 @@
                   if(obj.hasClass('opened')){
                     $('.sub-parent').removeClass('opened');
                     $('.parent').removeClass('opened');
-                    $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
+           //        $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
                     $('.box-child').slideUp();
                   } else {
                     $('.parent').removeClass('opened');
                     $('.box-child').slideUp();
-                    $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
+             //       $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
                     obj.addClass('opened');
                     $(selector).slideToggle();
                  }
@@ -167,6 +182,7 @@
                  touchDevices: false,
                  trigger: 'hover'
               });
+
               $('.tip-info').tooltipster({
                  animation: 'fall',
                  delay: 200,
@@ -175,10 +191,19 @@
                  touchDevices: false,
                  trigger: 'hover'
               });
+
+              $('.tip-icons').tooltipster({
+                 animation: 'fall',
+                 delay: 200,
+                 position: 'bottom',
+                 theme: 'tooltipster-nice',
+                 touchDevices: false,
+                 trigger: 'hover'
+              });
               <?  $cart_contents = $this->cart->countProducts();
                   if ($cart_contents > 0){
                   ?>
-                    $('.btn-cart-icon').addClass('cart-full');
+                //    $('.btn-cart-icon').addClass('cart-full');
                   <?
               }
               ?>
@@ -204,9 +229,20 @@
 
       <?php if ($categories) {
         ?>
+        <div class="nav-items">
+            <div class="nav-icons">
+              <a class="tip-icons" title="Оформить покупку" href="<?php echo $checkout; ?>"><i class="fa fa-thumbs-o-up"></i></a>
+              <a class="tip-icons" title="Перейти на главную страницу" href="<?php echo $home; ?>"><i class="fa fa-home"></i></a>
+              <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
+                  <i class="fa fa-shopping-cart"></i> <span><? echo $cart_contents; ?></span>
+              </a>
+              <a class="tip-icons" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a>
+            </div>
         <?php foreach ($categories as $category) { ?>
+
+
         <div class="parent item parent-<? echo $category['id']; ?>" data-id="<? echo $category['id']; ?>"><?php echo $category['name']; ?></div>
-        <!--  href="<?php echo $category['href']; ?>" -->
+
           <?php if ($category['children']) { ?>
             <?php for ($i = 0; $i < count($category['children']);) { ?>
               <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
@@ -230,7 +266,9 @@
              <?php } ?>
             <?php } ?>
           <?php } ?>
+                </div>
         <?php } ?>
+
     </div>
 
   <div id="slider-wrapper">
