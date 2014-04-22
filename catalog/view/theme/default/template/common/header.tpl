@@ -1,221 +1,122 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="ru">
 <meta charset="UTF-8" />
-        <title><?php echo $title; ?></title>
-        <base href="<?php echo $base; ?>" />
-        <?php if ($description) { ?>
-        <meta name="description" content="<?php echo $description; ?>" />
-        <?php } ?>
-        <?php if ($keywords) { ?>
-        <meta name="keywords" content="<?php echo $keywords; ?>" />
-        <?php } ?>
-        <?php if ($icon) { ?>
-        <link href="<?php echo $icon; ?>" rel="icon" />
-        <?php } ?>
-        <?php foreach ($links as $link) { ?>
-        <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
-        <?php } ?>
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
+    <title><?php echo $title; ?></title>
+    <base href="<?php echo $base; ?>" />
+    <?php if ($description) { ?>
+    <meta name="description" content="<?php echo $description; ?>" />
+    <?php } ?>
+    <?php if ($keywords) { ?>
+    <meta name="keywords" content="<?php echo $keywords; ?>" />
+    <?php } ?>
+    <?php if ($icon) { ?>
+    <link href="<?php echo $icon; ?>" rel="icon" />
+    <?php } ?>
+    <?php foreach ($links as $link) { ?>
+    <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
+    <?php } ?>
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
 
-        <?php foreach ($styles as $style) { ?>
-        <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
-        <?php } ?>
+    <?php foreach ($styles as $style) { ?>
+    <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
+    <?php } ?>
 
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet/less" type="text/css" href="css/root.less" />
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/fonts/hagincaps/font.css">
-        <link rel="stylesheet" type="text/css" href="/css/fullwidth-slider.css" />
-        <link rel="stylesheet" type="text/css" href="/css/tooltipster.css" />
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script src="/js/vendor/bootstrap.min.js"></script>
-        <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
-        <script src="/js/modernizr.custom.js"></script>
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
-        <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
-        <script type="text/javascript" src="/js/jquery.transit.min.js"></script>
-        <script type="text/javascript" src="/js/jquery.tooltipster.min.js"></script>
-        <script type="text/javascript" src="/js/snap.svg-min.js"></script>
-        <script type="text/javascript" src="/js/slider.js"></script>
-        <script type="text/javascript" src="/js/hovers.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet/less" type="text/css" href="css/root.less" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/fonts/hagincaps/font.css">
+    <link rel="stylesheet" type="text/css" href="/css/fullwidth-slider.css" />
+    <link rel="stylesheet" type="text/css" href="/css/tooltipster.css" />
 
-        <script src="/js/main.js"></script>
-        <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
 
-        <noscript>
-          <link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
-        </noscript>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
+    <script type="text/javascript" src="/js/jquery.transit.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript" src="/js/snap.svg-min.js"></script>
+    <script type="text/javascript" src="/js/slider.js"></script>
+    <script type="text/javascript" src="/js/hovers.js"></script>
 
-        <script src="/js/vendor/less-1.7.0.min.js"></script>
+    <script src="/js/main.js"></script>
 
-        <script type="text/javascript" src="/js/skel.min.js"></script>
-        <script type="text/javascript" src="/js/skel-panels.min.js"></script>
-        <script type="text/javascript" src="/js/skel-config.js"></script>
+    <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
 
-        <script type="text/javascript" charset="utf-8">
-          less.env = "development";
-          less.watch();
-        </script>
-        <?php foreach ($scripts as $script) { ?>
-        <script type="text/javascript" src="<?php echo $script; ?>"></script>
-        <?php } ?>
-        <!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie7.css" />
-        <![endif]-->
-        <!--[if lt IE 7]>
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
-        <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
-        <script type="text/javascript">
-        DD_belatedPNG.fix('#logo img');
-        </script>
-        <![endif]-->
-        <?php if ($stores) { ?>
-        <script type="text/javascript"><!--
-        /*
-        $(document).ready(function() {
-        <?php foreach ($stores as $store) { ?>
-        $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
-        <?php } ?>
-        }); */
-        //--></script>
-        <?php } ?>
-        <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
-        <?php echo $google_analytics; ?>
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
+    </noscript>
 
-        <script>
-          $(function(){
-   // $('.nav-items').css({position: 'fixed',top: '200px'});
-               $(window).scroll(function() {
+    <script src="/js/vendor/less-1.7.0.min.js"></script>
 
-                //   $($(window).height();
-                  if($(this).scrollTop()>120){
-                  $('.nav-items').css({position: 'fixed',top: 15+$(this).scrollTop(), width: $('#left-panel').width()});
-                  }
+    <script type="text/javascript" src="/js/skel.min.js"></script>
+    <script type="text/javascript" src="/js/skel-panels.min.js"></script>
+    <script type="text/javascript" src="/js/skel-config.js"></script>
 
-                  if($(this).scrollTop()<120){
-                    $('.nav-items').css({position: 'relative', top: '0px'});
-                  }
-         //         if($(this).scrollTop()>100){
-          //          $('.nav-items').css({position: 'fixed',top: '0'});
-           //       }
+    <script type="text/javascript" charset="utf-8">
+      less.env = "development";
+      less.watch();
+    </script>
+    <?php foreach ($scripts as $script) { ?>
+    <script type="text/javascript" src="<?php echo $script; ?>"></script>
+    <?php } ?>
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie7.css" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+    <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript">
+    DD_belatedPNG.fix('#logo img');
+    </script>
+    <![endif]-->
+    <?php if ($stores) { ?>
+    <script type="text/javascript"><!--
+    /*
+    $(document).ready(function() {
+    <?php foreach ($stores as $store) { ?>
+    $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
+    <?php } ?>
+    }); */
+    //--></script>
+    <?php } ?>
+    <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
+    <?php echo $google_analytics; ?>
 
-                });
-              $('.tooltip').tooltipster();
+    <script>
+      $(function(){
 
-              $('.box-child').hide();
-              $('.box-sub-child').hide();
+          <? if(!empty($paths[0])){ ?>
+              var selector = '.parent-'+<? echo $paths[0]; ?>;
+              toggleNavCategory($(selector));
 
-
-              $('.child').each(function(){
-                $(this).append('<b class="fa this fa-angle-double-right"></b>');
-              });
-              $('.jcarousel-next-horizontal').each(function(){
-                $(this).append('<i class="fa fa-angle-right"></i>');
-              });
-              $('.jcarousel-prev-horizontal').each(function(){
-                $(this).append('<i class="fa fa-angle-left"></i>');
-              });
-
-              function toggleNavSubCategory(obj){
-                var link = $('.sub-parent', obj.parent());
-                var id = link.attr('data-id');
-                var box = '.sub-child-'+id;
-                var sub = '<? echo $paths[1]; ?>';
-
-                 if(link.hasClass('opened')){
-                  $('i', obj).transition({rotate: '0deg'}, 600);
-                  $('.sub-parent').removeClass('opened');
-             //     $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
-                  $(box).slideUp();
-                } else {
-                  $('i', obj).transition({rotate: '180deg'}, 600);
-                  $('.sub-parent').removeClass('opened');
-                  $('.box-sub-child').slideUp(200);
-                  link.addClass('opened');
-                  if (sub == id) { link.addClass('active'); }
-         //         $('#left-panel .logo').transition({height: '90px', backgroundImage: 'url(/images/m.png)'}, 100);
-                  $(box).slideDown(500);
-               }
+              var selector1 = '.id-'+<? echo $paths[1]; ?>;
+              if( $(selector1).attr('data-id') ==  <? echo $paths[1]; ?> ) {
+                $(selector1).addClass('active');
+                 toggleNavSubCategory($(selector1));
               }
 
-              function toggleNavCategory(obj){
-                  var id = obj.attr('data-id');
-                  var selector = '.box-child-'+id;
-                  if(obj.hasClass('opened')){
-                    $('.sub-parent').removeClass('opened');
-                    $('.parent').removeClass('opened');
-           //        $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
-                    $('.box-child').slideUp();
-                  } else {
-                    $('.parent').removeClass('opened');
-                    $('.box-child').slideUp();
-             //       $('#left-panel .logo').transition({height: '242px', backgroundImage: 'url(/image/logo.png)'});
-                    obj.addClass('opened');
-                    $(selector).slideToggle();
-                 }
-              }
+          <? } else { ?>
+                toggleNavCategory($('.parent-104'));
+          <? } ?>
 
-
-              $('#left-panel .parent').click(function(){
-                    toggleNavCategory($(this));
-              });
-
-              $('#left-panel .btn-dropdown').click(function(){
-                  toggleNavSubCategory($(this));
-            });
-
-              <? if(!empty($paths[0])){ ?>
-                  var selector = '.parent-'+<? echo $paths[0]; ?>;
-                  toggleNavCategory($(selector));
-
-                  var selector1 = '.id-'+<? echo $paths[1]; ?>;
-                  if( $(selector1).attr('data-id') ==  <? echo $paths[1]; ?> ) {
-                    $(selector1).addClass('active');
-                     toggleNavSubCategory($(selector1));
-                  }
-
-              <? } else { ?>
-                    toggleNavCategory($('.parent-104'));
-              <? } ?>
-              $('.hover-info').tooltipster({
-                 animation: 'swing',
-                 delay: 300,
-                 position: 'bottom',
-                 theme: 'tooltipster-punk',
-                 touchDevices: false,
-                 trigger: 'hover'
-              });
-
-              $('.tip-info').tooltipster({
-                 animation: 'fall',
-                 delay: 200,
-                 position: 'bottom',
-                 theme: 'tooltipster-punk',
-                 touchDevices: false,
-                 trigger: 'hover'
-              });
-
-              $('.tip-icons').tooltipster({
-                 animation: 'fall',
-                 delay: 200,
-                 position: 'bottom',
-                 theme: 'tooltipster-nice',
-                 touchDevices: false,
-                 trigger: 'hover'
-              });
-              <?  $cart_contents = $this->cart->countProducts();
-                  if ($cart_contents > 0){
-                  ?>
-                //    $('.btn-cart-icon').addClass('cart-full');
-                  <?
-              }
+          <?  $cart_contents = $this->cart->countProducts();
+              if ($cart_contents > 0){
               ?>
-            });
-        </script>
+            //    $('.btn-cart-icon').addClass('cart-full');
+              <?
+          }
+          ?>
+        });
+    </script>
+
+    <script type="text/javascript" src="/js/engine.js"></script>
+    <script src="/js/modernizr.custom.js"></script>
 </head>
 <body>
 

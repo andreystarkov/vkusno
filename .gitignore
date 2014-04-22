@@ -1,0 +1,13 @@
+admin/
+fonts/
+image/
+images/
+img/
+logos/
+system/
+config.php
+config-dist.php
+*.sql
+*.zip
+php.ini
+sftp-config.json
