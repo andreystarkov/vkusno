@@ -36,11 +36,11 @@
     <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script type="text/javascript" src="/js/jquery.ba-cond.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.slitslider.js"></script>
-    <script type="text/javascript" src="/js/jquery.transit.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.tooltipster.min.js"></script>
-    <script type="text/javascript" src="/js/snap.svg-min.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.slitslider.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.transit.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/snap.svg-min.js"></script>
     <script type="text/javascript" src="/js/slider.js"></script>
     <script type="text/javascript" src="/js/hovers.js"></script>
 
@@ -54,14 +54,15 @@
 
     <script src="/js/vendor/less-1.7.0.min.js"></script>
 
-    <script type="text/javascript" src="/js/skel.min.js"></script>
-    <script type="text/javascript" src="/js/skel-panels.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/skel.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/skel-panels.min.js"></script>
     <script type="text/javascript" src="/js/skel-config.js"></script>
 
     <script type="text/javascript" charset="utf-8">
       less.env = "development";
       less.watch();
     </script>
+
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -116,21 +117,12 @@
     </script>
 
     <script type="text/javascript" src="/js/engine.js"></script>
-    <script src="/js/modernizr.custom.js"></script>
+    <script src="/js/vendor/modernizr.custom.js"></script>
 </head>
 <body>
 
 <?php if ($categories) { ?>
 
-    <div id="menu">
-      <ul>
-        <li><a class="btn-go" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></li>
-        <li><a class="tip-info" title="Перейти на главную страницу", href="<?php echo $home; ?>"><i class="fa fa-home"></i></a></li>
-        <li><a class="tip-info btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
-          <i class="fa fa-shopping-cart"></i> <span><? echo $cart_contents; ?></span></a></li>
-        <li><a class="tip-info" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a></li>
-      </ul>
-    </div>
 <?php } ?>
     <div id="left-panel" id="nav-main">
       <div class="logo"><a href="index.php"></a></div>
