@@ -10,5 +10,5 @@ config-dist.php
 *.sql
 *.zip
 php.ini
-./index.php
+index.php
 sftp-config.json
