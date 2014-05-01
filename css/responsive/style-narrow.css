@@ -1,6 +1,6 @@
-        #left-panel { width: 290px; }
+     /*   #left-panel, .nav-items    { width: 290px; }
         #box-container { padding-left: 340px;}
-        #slider-wrapper { padding-left: 290px; }
+        #slider-wrapper { padding-left: 290px; } */
         .product-filter { display: none;}
         #leftPanelButton .toggle,
         #rightPanelButton .toggle {
@@ -9,47 +9,45 @@
         height: 54px !important;
         line-height: 44px;
      }
+
+     .category-list a { padding: 6px 10px; }
         #left-panel .item {
             padding: 8px 20px;
             font-family: 'Bebas Neue';
             font-size: 20px !important;
         }
-
+    #left-panel .btn-dropdown i { font-size: 18px;}
     #left-panel .item.child { padding: 6px 20px; }
      .left-nav a.active i {
         font-size:13px !important;
         color: rgba(255,255,255,0.3);
      }
-
+     #left-panel .box-child.level-2 .item, #left-panel .box-sub-child.level-2 .item { font-size: 18px !important;}
     #leftPanelButton .toggle {
         text-align: left;
         padding-left: 20px;
         padding-top: 5px;
      }
-
+    #left-panel .btn-dropdown {
+        height: 100%;
+        max-height: 100%;
+    }
     #rightPanelButton .toggle {
         text-align: right;
         padding-right: 20px;
      }
 
-    #sidePanelToggle {
-        .toggle {
-            i {
-                margin-right: 10px;
-            }
-        }
-    }
+    #sidePanelToggle .toggle i { margin-right: 10px; }
 
-    #rightPanelToggle {
+   .cart-info thead td {font-size: 20px;}
+   .cart-info .name a, .cart-info tbody td { font-size: 22px;}
+    .cart-total .total-cost {font-size: 18px;}
+    .cart-total .total-cost:last-child { font-size: 26px;}
+    .cart-total .total-cost  b {font-weight: normal; font-size: 16px;}
 
-        text-align: right;
-        .toggle {
-            margin-right: 2em !important;
-            i {
-                margin-left: 10px;
-            }
-        }
-    }
+    .checkout-content .block-left { margin-top: 30px; width: 90%; }
+    .checkout-content .block-left input, .checkout-content .block-left textarea { width: 100%; }
+
 
     #sidePanelToggle .toggle, #rightPanelToggle .toggle
     {

@@ -6,7 +6,14 @@
 
         $('.box-child').hide();
         $('.box-sub-child').hide();
-
+        $('.cart-box').transition({x: '400px'},10);
+        $('#left-panel .item span').each(function(){
+            var cnt = $(this).html();
+            if(cnt == 0){
+              $(this).parent().addClass('empty-category');
+            }
+        });
+  //      $('.cart-box').transition({x: '800px'}, 10);
         appendClass( $('.jcarousel-next-horizontal'), '<i class="fa fa-angle-right"></i>');
         appendClass( $('.jcarousel-prev-horizontal'), '<i class="fa fa-angle-left"></i>');
         appendClass( $('#left-panel .item span'), ' товаров');
@@ -18,6 +25,14 @@
         $('.cart .item-link').transition({y:'200px'}, 10);
         $('.cart .price').transition({y:'-150px', scale: '0.1'}, 10);
 
+        $('.tip').tooltipster({ animation: 'grow', delay: 200,
+          theme: 'tip-default', touchDevices: false, trigger: 'hover'
+        });
+
+        $('.tip-error').tooltipster({ animation: 'fall', delay: 200, position: 'bottom',
+          theme: 'tooltipster-punk', touchDevices: false, trigger: 'hover'
+        });
+
         $('.hover-info').tooltipster({ animation: 'grow', delay: 200, position: 'bottom',
           theme: 'tooltipster-punk', touchDevices: false, trigger: 'hover'
         });
@@ -26,10 +41,44 @@
           theme: 'tooltipster-punk', touchDevices: false, trigger: 'hover'
         });
 
-        $('.tip-icons').tooltipster({ animation: 'fall', delay: 200, position: 'bottom',
-          theme: 'tooltipster-nice', touchDevices: false, trigger: 'hover'
+
+        $('.btn-mini-cart').click(function(){
+          if ( $(this).parent().css('right') != '20px' ){
+            $(this).parent().transition({right: '20px'});
+            $('.cart-box').transition({x: '0px'});
+         } else {
+           $(this).parent().transition({right: '-295px'});
+           $('.cart-box').transition({x: '600px'});
+         }
         });
 
+        $('.mini-cart-holder').hover(function(){
+
+        }, function(){
+    //      $(this).stop(1000).transition({right: '-295px'});
+      //    $('.cart-box', this).stop(1000).transition({x: '600px'});
+        });
+
+        $('#btn-full-nav').click(function(){
+          if($('#box-container').css('padding-left') == '60px'){
+            $('i', this).transition({rotate: '0deg'});
+            $('#box-container').animate({paddingLeft: '420px'});
+            $('#left-panel').transition({x: '0'});
+            $('#slider-wrapper').animate({paddingLeft: '350px'});
+         } else {
+          $('i', this).transition({rotate: '180deg'});
+          $('#box-container').animate({paddingLeft: '60px'});
+          $('#slider-wrapper').animate({paddingLeft: '0px'});
+          $('#left-panel').transition({x: '-350px'});
+         }
+        });
+
+        $('.tip-icons').tooltipster({ delay: 200, position: 'right', contentAsHTML: true,interactiveTolerance: '1200',
+          theme: 'tip-cart-success', touchDevices: false, trigger: 'custom', autoClose: true, animation: 'fall', interactive: 'true'
+        });
+        $(window).keypress(function() {
+             $('.tip-icons').tooltipster('hide');
+         });
         $('.tooltip').tooltipster();
 
         $('#left-panel .parent').click(function(){
@@ -39,7 +88,7 @@
         $('#left-panel .btn-dropdown').click(function(){
           toggleNavSubCategory($(this));
         });
-
+         // toggleNavCategory($('.parent-84'));
          $('#left-panel .item').hover(function(){
             $('span',this).transition({opacity: 1, perspective: '250px', rotateY: '30deg'});
           }, function(){
@@ -63,4 +112,5 @@
           $('.name', this).transition({opacity:'0.7'}, 200);
         });
 
+        $('#skel-panels-pageWrapper').height($('body').height());
     });

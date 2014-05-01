@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="ru">
+<html>
 <meta charset="UTF-8" />
     <title><?php echo $title; ?></title>
     <base href="<?php echo $base; ?>" />
@@ -109,7 +109,7 @@
           <?  $cart_contents = $this->cart->countProducts();
               if ($cart_contents > 0){
               ?>
-            //    $('.btn-cart-icon').addClass('cart-full');
+                $('.btn-cart-icon').addClass('cart-full');
               <?
           }
           ?>
@@ -120,13 +120,20 @@
     <script src="/js/vendor/modernizr.custom.js"></script>
 </head>
 <body>
-
+  <? if ($cart_contents > 0){ ?>
+    <div class="mini-cart-holder">
+    <div class="btn-mini-cart" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
+    <div class="cart-box">
+       <?php echo $cart; ?>
+    </div>
+    </div>
+  <? } ?>
 <?php if ($categories) { ?>
 
 <?php } ?>
     <div id="left-panel" id="nav-main">
       <div class="logo"><a href="index.php"></a></div>
-
+      <div id="btn-full-nav"><i class="fa fa-angle-left"></i> </div>
       <?php if ($categories) {
         ?>
         <div class="nav-items">
@@ -134,7 +141,7 @@
               <a class="tip-icons" title="Оформить покупку" href="<?php echo $checkout; ?>"><i class="fa fa-thumbs-o-up"></i></a>
               <a class="tip-icons" title="Перейти на главную страницу" href="<?php echo $home; ?>"><i class="fa fa-home"></i></a>
               <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
-                  <i class="fa fa-shopping-cart"></i> <span><? echo $cart_contents; ?></span>
+                <i class="fa-shopping-cart fa"></i> <span></span>
               </a>
               <a class="tip-icons" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a>
             </div>
@@ -146,23 +153,31 @@
           <?php if ($category['children']) { ?>
             <?php for ($i = 0; $i < count($category['children']);) { ?>
               <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
+
               <ul class="box-child level-1 box-child-<?php echo $category['children'][$i]['parent_id']; ?>">
+
               <?php for (; $i < $j; $i++) { ?>
-              <?php if (isset($category['children'][$i])) { ?>
-              <? if( $category['children'][$i]['children'] ) { $cls = "sub-parent"; } else { $cls = ""; } ?>
+                <?php if (isset($category['children'][$i])) { ?>
+                  <? if( $category['children'][$i]['children'] ) { $cls = "sub-parent"; } else { $cls = ""; } ?>
 
-              <li><a data-id="<?php echo $category['children'][$i]['id']; ?>" data-parent="<?php echo $category['children'][$i]['parent_id']; ?>" class="child item <? echo $cls; ?> id-<?php echo $category['children'][$i]['id']; ?> child-<?php echo $category['children'][$i]['parent_id']; ?>" href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a>
-             <?php if( $category['children'][$i]['children'] ) { ?>
-              <ul class="box-child level-2 box-sub-child sub-child-<? echo $category['children'][$i]['id']; ?>">
-               <?php foreach( $category['children'][$i]['children'] as $menu3item ) { ?>
-                  <li><a class="item child child-<?echo $category['children'][$i]['id']; ?>" href="<?php echo $menu3item['href']; ?>"><?php echo $menu3item['name']; ?></a></li>
-               <?php } ?>
-              </ul></li>
-           <?php } ?>
+                  <li>
+                    <a data-id="<?php echo $category['children'][$i]['id']; ?>" data-parent="<?php echo $category['children'][$i]['parent_id']; ?>"
+                      class="child item <? echo $cls; ?> id-<?php echo $category['children'] [$i]['id']; ?> child-<?php echo $category['children'][$i]['parent_id']; ?>"
+                      href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a>
 
+                    <?php if( $category['children'][$i]['children'] ) { ?>
+                      <ul class="box-child level-2 box-sub-child sub-child-<? echo $category['children'][$i]['id']; ?>">
+                        <?php foreach( $category['children'][$i]['children'] as $menu3item ) { ?>
+                          <li><a class="item child child-<?echo $category['children'][$i]['id']; ?>"
+                          href="<?php echo $menu3item['href']; ?>"><?php echo $menu3item['name']; ?></a></li>
+                        <?php } ?>
+                      </ul>
+                   <?php } ?>
+                 </li>
+
+                <?php } ?>
               <?php } ?>
-              <?php } ?>
-            </ul>
+              </ul>
              <?php } ?>
             <?php } ?>
           <?php } ?>

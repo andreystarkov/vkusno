@@ -1,7 +1,4 @@
 <div id="cart">
-  <div class="heading">
-    <h4><?php echo $heading_title; ?></h4>
-    <a><span id="cart-total"><?php echo $text_items; ?></span></a></div>
   <div class="content">
     <?php if ($products || $vouchers) { ?>
     <div class="mini-cart-info">
@@ -37,16 +34,13 @@
       </table>
     </div>
     <div class="mini-cart-total">
-      <table>
+
         <?php foreach ($totals as $total) { ?>
-        <tr>
-          <td class="right"><b><?php echo $total['title']; ?>:</b></td>
-          <td class="right"><?php echo $total['text']; ?></td>
-        </tr>
+        <div class="total"><b><?php echo $total['title']; ?></b>: <?php echo $total['text']; ?></div>
         <?php } ?>
-      </table>
     </div>
-    <div class="checkout"><a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a> | <a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
+    <div class="checkout"><a class="to-cart tip" href="<?php echo $cart; ?>" title="<?php echo $text_cart; ?>"><i class="fa fa-shopping-cart"></i></a>
+      <a class="to-checkout tip" href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-cutlery"></i></a></div>
     <?php } else { ?>
     <div class="empty"><?php echo $text_empty; ?></div>
     <?php } ?>

@@ -63,7 +63,7 @@
                 <div class="img-thumb" style="background-image:url(<?php echo $imgThumb; ?>)" >
                   <div class="cart">
                     <div class="price"><?php echo $product['price']; ?></div>
-                    <div class="btn-cart" onclick="addToCart('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> В корзину</div>
+                    <div class="btn-cart tip-addtocart" onclick="addToCart('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> В корзину</div>
                     <a class="item-link hover-info" title="<? echo $product['description']; ?>" href="<?php echo $product['href']; ?>"><i class="fa fa-search"></i></a>
                   </div>
                 </div>

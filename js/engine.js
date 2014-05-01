@@ -47,9 +47,11 @@
 
       $(window).scroll(function(){
         if($(this).scrollTop()>120){
+          $('.mini-cart-holder').css({top: 15+$(this).scrollTop()});
           $('.nav-items').css({position: 'fixed',top: 15+$(this).scrollTop(), width: $('#left-panel').width()});
         }
         if($(this).scrollTop()<120){
+          $('.mini-cart-holder').css({top: '15px'});
           $('.nav-items').css({position: 'relative', top: '0px'});
         }
       });

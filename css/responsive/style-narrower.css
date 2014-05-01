@@ -1,3 +1,7 @@
+        .checkout-content .block-left { margin-top: 30px; width: 90%; }
+        .checkout-content .block-left input, .checkout-content .block-left textarea { width: 100%; }
+
+        #box-content h1 { font-size: 45px;}
         #column-left { display: none; }
         #box-container { padding-left: 40px;}
         .product-filter { display: none;}
@@ -9,6 +13,34 @@
             font-family: 'Bebas Neue';
             font-size: 20px;
         }
+        .checkout-content .block-left { width: 100%; }
+        .checkout-form table.form tr td:first-child {
+            font-size: 20px;
+            padding: 0px;
+        }
+       .checkout-content table.checkout-table thead td {
+            font-size: 20px;
+       }
+
+       .cart-info thead td {font-size: 20px;}
+       .cart-info .name a, .cart-info tbody td { font-size: 22px;}
+        .cart-total .total-cost {font-size: 18px;}
+        .cart-total .total-cost:last-child { font-size: 26px;}
+        .cart-total .total-cost  b {font-weight: normal; font-size: 16px;}
+
+       .checkout-content table.checkout-table tbody td.name a {
+        font-size: 16px;
+       }
+        .checkout-form table.form tr td {
+                   width: 100%;
+           display: block;
+       }
+         .checkout-form table.form tr td span {
+            margin-right: 2px; font-size: 16px;
+         }
+         .checkout-content .block-left textarea {
+            height: 5em;
+         }
         #menu { display: none; }
 
         #left-panel .item.child { padding: 6px 15px; }

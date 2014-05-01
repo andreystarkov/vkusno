@@ -27,11 +27,11 @@
         <thead>
           <tr>
             <td class="image"><?php echo $column_image; ?></td>
-            <td class="name"><?php echo $column_name; ?></td>
-            <td class="model"><?php echo $column_model; ?></td>
+            <td class="name">Название</td>
             <td class="quantity"><?php echo $column_quantity; ?></td>
             <td class="price"><?php echo $column_price; ?></td>
             <td class="total"><?php echo $column_total; ?></td>
+            <td class="remove">Удалить</td>
           </tr>
         </thead>
         <tbody>
@@ -63,20 +63,20 @@
               <?php if ($product['reward']) { ?>
               <small><?php echo $product['reward']; ?></small>
               <?php } ?></td>
-            <td class="model"><?php echo $product['model']; ?></td>
             <td class="quantity"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" />
-              &nbsp;
+            <!--  &nbsp;
               <input type="image" src="catalog/view/theme/default/image/update.png" alt="<?php echo $button_update; ?>" title="<?php echo $button_update; ?>" />
-              &nbsp;<a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/default/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
+              &nbsp; --></td>
             <td class="price"><?php echo $product['price']; ?></td>
             <td class="total"><?php echo $product['total']; ?></td>
+
+            <td class="remove"><a href="<?php echo $product['remove']; ?>"><i class="fa fa-trash-o"></i></a></td>
           </tr>
           <?php } ?>
           <?php foreach ($vouchers as $vouchers) { ?>
           <tr>
             <td class="image"></td>
             <td class="name"><?php echo $vouchers['description']; ?></td>
-            <td class="model"></td>
             <td class="quantity"><input type="text" name="" value="1" size="1" disabled="disabled" />
               &nbsp;<a href="<?php echo $vouchers['remove']; ?>"><img src="catalog/view/theme/default/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
             <td class="price"><?php echo $vouchers['amount']; ?></td>
@@ -88,10 +88,10 @@
     </div>
   </form>
   <?php if ($coupon_status || $voucher_status || $reward_status || $shipping_status) { ?>
-  <h2><?php echo $text_next; ?></h2>
+  <? /* <h2><?php echo $text_next; ?></h2>
   <div class="content">
     <p><?php echo $text_next_choice; ?></p>
-    <table class="radio">
+   <table class="radio">
       <?php if ($coupon_status) { ?>
       <tr class="highlight">
         <td><?php if ($next == 'coupon') { ?>
@@ -133,7 +133,7 @@
       </tr>
       <?php } ?>
     </table>
-  </div>
+  </div> */ ?>
   <div class="cart-module">
     <div id="coupon" class="content" style="display: <?php echo ($next == 'coupon' ? 'block' : 'none'); ?>;">
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
@@ -184,7 +184,7 @@
             </select></td>
         </tr>
         <tr>
-          <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+          <td><?php echo $entry_postcode; ?></td>
           <td><input type="text" name="postcode" value="<?php echo $postcode; ?>" /></td>
         </tr>
       </table>
@@ -194,17 +194,20 @@
   <?php } ?>
   <div class="cart-total">
     <table id="total">
+       <tr>
       <?php foreach ($totals as $total) { ?>
-      <tr>
-        <td class="right"><b><?php echo $total['title']; ?>:</b></td>
-        <td class="right"><?php echo $total['text']; ?></td>
-      </tr>
+
+        <td class="right total-cost"><b><?php echo $total['title']; ?>:</b></td>
+        <td class="right total-cost"><?php echo $total['text']; ?></td>
+
       <?php } ?>
+      </tr>
     </table>
   </div>
   <div class="buttons">
-    <div class="right"><a href="<?php echo $checkout; ?>" class="button"><?php echo $button_checkout; ?></a></div>
-    <div class="center"><a href="<?php echo $continue; ?>" class="button"><?php echo $button_shopping; ?></a></div>
+    <div class="right"><a href="<?php echo $checkout; ?>" class="btn-cart btn-checkout"><?php echo $button_checkout; ?></a></div>
+    <div class="center"></div>
+    <!-- <a href="<?php echo $continue; ?>" class="btn-cart button"><?php echo $button_shopping; ?></a> -->
   </div>
   <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--
