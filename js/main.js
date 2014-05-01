@@ -41,14 +41,27 @@
           theme: 'tooltipster-punk', touchDevices: false, trigger: 'hover'
         });
 
+        $('.product-filter .fa').click(function(){
+          if ( $(this).parent().hasClass('box-lightgray') ){
+           $(this).parent().addClass('inactive').removeClass('box-lightgray');
+
+         } else {
+            $(this).parent().removeClass('inactive').addClass('box-lightgray');
+         }
+        });
+
+        $('.caption-current').fadeToggle();
 
         $('.btn-mini-cart').click(function(){
-          if ( $(this).parent().css('right') != '20px' ){
-            $(this).parent().transition({right: '20px'});
-            $('.cart-box').transition({x: '0px'});
-         } else {
-           $(this).parent().transition({right: '-295px'});
+          if( $(this).hasClass('active') ){
+           $(this).removeClass('active');
+           $(this).parent().transition({right: '-295px', height: '70px'});
            $('.cart-box').transition({x: '600px'});
+
+         } else {
+            $(this).addClass('active');
+            $(this).parent().transition({right: '20px', height: 'auto'});
+            $('.cart-box').transition({x: '0px'});
          }
         });
 
@@ -60,14 +73,14 @@
         });
 
         $('#btn-full-nav').click(function(){
-          if($('#box-container').css('padding-left') == '60px'){
+          if($('#box-container').css('padding-left') == '70px'){
             $('i', this).transition({rotate: '0deg'});
             $('#box-container').animate({paddingLeft: '420px'});
             $('#left-panel').transition({x: '0'});
             $('#slider-wrapper').animate({paddingLeft: '350px'});
          } else {
           $('i', this).transition({rotate: '180deg'});
-          $('#box-container').animate({paddingLeft: '60px'});
+          $('#box-container').animate({paddingLeft: '70px'});
           $('#slider-wrapper').animate({paddingLeft: '0px'});
           $('#left-panel').transition({x: '-350px'});
          }
@@ -76,6 +89,11 @@
         $('.tip-icons').tooltipster({ delay: 200, position: 'right', contentAsHTML: true,interactiveTolerance: '1200',
           theme: 'tip-cart-success', touchDevices: false, trigger: 'custom', autoClose: true, animation: 'fall', interactive: 'true'
         });
+
+        $('.tip-description').tooltipster({ delay: 200, position: 'bottom', contentAsHTML: true,
+          theme: 'tip-product-description', touchDevices: false, trigger: 'hover', animation: 'grow', offsetY: '-20'
+        });
+
         $(window).keypress(function() {
              $('.tip-icons').tooltipster('hide');
          });

@@ -47,11 +47,13 @@
 
       $(window).scroll(function(){
         if($(this).scrollTop()>120){
-          $('.mini-cart-holder').css({top: 15+$(this).scrollTop()});
+          $('.mini-cart-holder').css({top: 70+$(this).scrollTop()});
+          $('.product-filter').css({top: 170+$(this).scrollTop()});
           $('.nav-items').css({position: 'fixed',top: 15+$(this).scrollTop(), width: $('#left-panel').width()});
         }
         if($(this).scrollTop()<120){
-          $('.mini-cart-holder').css({top: '15px'});
+          $('.mini-cart-holder').css({top: '70px'});
+          $('.product-filter').css({top: '170px'});
           $('.nav-items').css({position: 'relative', top: '0px'});
         }
       });

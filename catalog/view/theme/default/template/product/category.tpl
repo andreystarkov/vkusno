@@ -28,7 +28,8 @@
   </div>
   <?php } ?>
   <?php if ($products) { ?>
-  <div class="product-filter">
+  <div class="product-filter inactive">
+    <i class="fa fa-sort-alpha-asc tip" title="Параметры сортировки и отображения товаров."></i>
     <div class="limit">
       <b><?php echo $text_limit; ?></b>
       <select onchange="location = this.value;">
@@ -42,7 +43,9 @@
       </select>
 
     </div>
-    <div class="sort"><b><?php echo $text_sort; ?></b>
+    <div class="sort">
+
+      <b><?php echo $text_sort; ?></b>
       <select onchange="location = this.value;">
         <?php foreach ($sorts as $sorts) { ?>
         <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
@@ -61,10 +64,10 @@
           <?php if ( empty($product['thumb']) ) { $imgThumb = "/image/no.jpg"; } else { $imgThumb = $product['thumb']; } ?>
             <div class="image">
                 <div class="img-thumb" style="background-image:url(<?php echo $imgThumb; ?>)" >
-                  <div class="cart">
+                  <div class="cart tip-description" title="<b><?php echo $product['name']; ?></b><? echo $product['description']; ?>">
                     <div class="price"><?php echo $product['price']; ?></div>
                     <div class="btn-cart tip-addtocart" onclick="addToCart('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> В корзину</div>
-                    <a class="item-link hover-info" title="<? echo $product['description']; ?>" href="<?php echo $product['href']; ?>"><i class="fa fa-search"></i></a>
+                    <a class="item-link" href="<?php echo $product['href']; ?>"><i class="fa fa-search"></i></a>
                   </div>
                 </div>
             </div>

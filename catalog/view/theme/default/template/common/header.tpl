@@ -103,7 +103,7 @@
               }
 
           <? } else { ?>
-                toggleNavCategory($('.parent-104'));
+                toggleNavCategory($('.parent-84'));
           <? } ?>
 
           <?  $cart_contents = $this->cart->countProducts();
@@ -122,7 +122,7 @@
 <body>
   <? if ($cart_contents > 0){ ?>
     <div class="mini-cart-holder">
-    <div class="btn-mini-cart" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
+    <div class="btn-mini-cart tip" title="Щелкните, что бы посмотреть содержимое корзины" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
     <div class="cart-box">
        <?php echo $cart; ?>
     </div>
@@ -137,7 +137,7 @@
       <?php if ($categories) {
         ?>
         <div class="nav-items">
-            <div class="nav-icons">
+            <div class="nav-icons" style="display:none">
               <a class="tip-icons" title="Оформить покупку" href="<?php echo $checkout; ?>"><i class="fa fa-thumbs-o-up"></i></a>
               <a class="tip-icons" title="Перейти на главную страницу" href="<?php echo $home; ?>"><i class="fa fa-home"></i></a>
               <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
@@ -188,30 +188,29 @@
 
   <div id="slider-wrapper">
 
-      <div class="slider-caption" id="caption-1">
-        <h3>Мексиканская горячая мясная тарелка.</h3>
-        <i>Говяжья вырезка, жареное яйцо, пикантные овощи c перцем чили. Соломенное сомбрэро и шот текилы в подарок.</i>
+      <div class="slider-caption caption-current" id="caption-4">
+        <h3>Стейк Шампань.</h3>
+        <i>Говяжья вырезка, фисташки, шампанское, рис,масло сливочное, ветчина пармская, грибы вешенки, красный лук, микс-салат.</i>
         <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
       </div>
 
       <div class="slider-caption" id="caption-2">
-        <h3>Говяжья вырезка, жареное яйцо, пикантные овощи.</h3>
-        <i>Мексиканская горячая мясная тарелка. Соломенное сомбрэро и шот текилы в подарок.</i>
+        <h3>Гриль соте Алабиф.</h3>
+        <i>Вырезка говяжья, перец "Огонек", томаты черри, цукини, шампиньоны, специи, сыр Пармезан, масло оливковое, микс-салат.</i>
         <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
       </div>
 
       <div class="slider-caption" id="caption-3">
-        <h3>Соломенное сомбрэро и шот текилы в подарок.</h3>
-        <i>Говяжья вырезка, жареное яйцо, пикантные овощи c перцем чили. Мексиканская горячая мясная тарелка </i>
+        <h3>Морской бродет из гребешков.</h3>
+        <i>Лисички, шампиньоны, гребешки, морковь, корень сельдерея, лук-порей, лайм, специи, масло оливковое.</i>
         <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
       </div>
+
      <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
       <ul class="itemwrap">
-        <li data-caption="caption-1" class="current caption-1"><img src="/images/6.jpg" alt="img06"/></li>
-        <li data-caption="caption-2" class="caption-2"><img src="/images/7.jpg" alt="img07"/></li>
-        <li data-caption="caption-3" class="caption-3"><img src="/images/8.jpg" alt="img08"/>
-
-        </li>
+        <li data-caption="caption-4" class="caption-4 current"><img src="/images/7.jpg" alt="img07"/></li>
+        <li data-caption="caption-2" class="caption-2"><img src="/images/8.jpg" alt="img08"/></li>
+        <li data-caption="caption-3" class="caption-3"><img src="/images/slider/brodet.jpg" alt="img08"/></li>
       </ul>
       <nav>
         <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>
