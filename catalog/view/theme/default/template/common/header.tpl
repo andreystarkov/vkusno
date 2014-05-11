@@ -22,7 +22,8 @@
     <?php } ?>
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet/less" type="text/css" href="css/root.less" />
+    <!--  <link rel="stylesheet" href="css/root.css"> -->
+<link rel="stylesheet/less" type="text/css" href="css/root.less" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/fonts/hagincaps/font.css">
@@ -52,17 +53,13 @@
       <link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
     </noscript>
 
-    <script src="/js/vendor/less-1.7.0.min.js"></script>
-
     <script type="text/javascript" src="/js/vendor/skel.min.js"></script>
     <script type="text/javascript" src="/js/vendor/skel-panels.min.js"></script>
     <script type="text/javascript" src="/js/skel-config.js"></script>
 
-    <script type="text/javascript" charset="utf-8">
-      less.env = "development";
-      less.watch();
-    </script>
 
+
+    <script src="/js/vendor/less-1.7.0.min.js"></script>
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -103,7 +100,7 @@
               }
 
           <? } else { ?>
-                toggleNavCategory($('.parent-84'));
+          //      toggleNavCategory($('.parent-84'));
           <? } ?>
 
           <?  $cart_contents = $this->cart->countProducts();
@@ -121,7 +118,7 @@
 </head>
 <body>
   <? if ($cart_contents > 0){ ?>
-    <div class="mini-cart-holder">
+    <div class="mini-cart-holder" >
     <div class="btn-mini-cart tip" title="Щелкните, что бы посмотреть содержимое корзины" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
     <div class="cart-box">
        <?php echo $cart; ?>
@@ -137,13 +134,13 @@
       <?php if ($categories) {
         ?>
         <div class="nav-items">
-            <div class="nav-icons" style="display:none">
+            <div class="nav-icons">
               <a class="tip-icons" title="Оформить покупку" href="<?php echo $checkout; ?>"><i class="fa fa-thumbs-o-up"></i></a>
               <a class="tip-icons" title="Перейти на главную страницу" href="<?php echo $home; ?>"><i class="fa fa-home"></i></a>
-              <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
-                <i class="fa-shopping-cart fa"></i> <span></span>
-              </a>
               <a class="tip-icons" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a>
+              <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
+                 <i class="fa-shopping-cart fa"></i> <span></span>
+              </a>
             </div>
         <?php foreach ($categories as $category) { ?>
 
@@ -181,6 +178,11 @@
              <?php } ?>
             <?php } ?>
           <?php } ?>
+                  <div id="phone">
+          <span>наш телефон</span>
+          <p>6-0000-6</p>
+          <i>с 12:00 до 00:00</i>
+        </div>
                 </div>
         <?php } ?>
 
@@ -191,19 +193,19 @@
       <div class="slider-caption caption-current" id="caption-4">
         <h3>Стейк Шампань.</h3>
         <i>Говяжья вырезка, фисташки, шампанское, рис,масло сливочное, ветчина пармская, грибы вешенки, красный лук, микс-салат.</i>
-        <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
+       <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>
       </div>
 
       <div class="slider-caption" id="caption-2">
         <h3>Гриль соте Алабиф.</h3>
         <i>Вырезка говяжья, перец "Огонек", томаты черри, цукини, шампиньоны, специи, сыр Пармезан, масло оливковое, микс-салат.</i>
-        <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
+         <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>
       </div>
 
       <div class="slider-caption" id="caption-3">
         <h3>Морской бродет из гребешков.</h3>
         <i>Лисички, шампиньоны, гребешки, морковь, корень сельдерея, лук-порей, лайм, специи, масло оливковое.</i>
-        <!-- <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div> -->
+       <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>
       </div>
 
      <div id="nice-slider" class="nice-slider nice-slider-fullwidth">

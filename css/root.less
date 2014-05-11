@@ -47,8 +47,6 @@
     @color-yellow: desaturate(@yellow, 15%);
 
     @import "./less/product-detail.less";
-    @import "./less/catalog.less";
-    @import "./less/menus.less";
     @import "./less/slider.less";
 
     a { color: desaturate(@red, 15%); text-decoration: none }
@@ -395,7 +393,7 @@
                 opacity: 0;
                 position: absolute;
                 left: 12px;
-                top: 12px;
+                top: 8px;
                 font-weight: normal;
                 font-size: 24px;
                }
@@ -440,6 +438,16 @@
         width: 100%;
     }
 
+    #carousel0 {
+        margin-left: 40px;
+    }
+    #phone {
+        margin: 10px auto;
+        span { display: block; color: @color-light-brown; font-family: @font-subheader; font-style: italic; font-size: 26px; opacity: 0.8; }
+        i { display: block; color: @color-light-brown; font-family: @font-subheader; font-style: italic; font-size: 22px; opacity: 0.7; }
+        p { font-size: 45px; font-family: 'Hagin Caps Medium'; color: @color-light-brown; margin-bottom: 0px; }
+    }
+
     #top-icons {
         width: 100%;
         list-style: none;
@@ -450,21 +458,28 @@
         position: relative;
 
     }
-/*
+
+    .btn-cart-round {
+        display: none !important;
+        padding: 8px 15px;
+        background: @red;
+        font-size: 32px;
+        border-radius: 50px;
+        i {
+            color: #fff;
+        }
+        display: inline-block;
+    }
+
     .cart-full {
         color: #fff !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-       //order-bottom: 4px solid @yellow;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+
         background: mix(@yellow, @color-darkred, 70%) !important;
         i { color: @brown; }
-        border-radius: 10px !important;
-        padding: 3px 12px !important;
-        span {
-            margin-left: 8px; margin-right: 3px;
-            font-size: 20px;
-        }
+
     }
-*/
+
     .btn-go {
         padding: 18px 20px 19px 18px !important;
     }
@@ -1116,8 +1131,7 @@
             padding-right: 25px;
             overflow: visible !important;
             a {
-             font-size: 26px;
-            text-style: italic;
+             font-size: 22px;
             color: @red-dark;
             text-decoration: underline;
             }
@@ -1746,11 +1760,18 @@
         min-height: 100px;
         padding: 20px;
         box-shadow: inset 0px 1px 6px rgba(0,0,0,0.8);
-
         background: desaturate(darken(mix(@panel-color, @brown, 80%), 7%), 7%);
         color: @color-light-brown;
         font-family: @font-text;
         font-size: 18px;
+
+        .btns {
+            ul {
+                li {
+                    a { font-size: 18px; }
+                }
+            }
+        }
         h3 {
             color: fade(@color-light-brown,95%);
             font-size: 26px;

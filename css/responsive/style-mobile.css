@@ -11,4 +11,18 @@
         .name a, .price {
             padding: 0;
         }
+   .slider-caption {
+        display: none;
+        position: absolute;
+        z-index: 6666;
+        top:390px;
+        right: 15%;
+        padding: 12px 30px 12px 30px;
+        width: 70%;
+        min-height: 185px;
+        border-radius: 10px;
+    }
+
+    .slider-caption h3 { font-size: 22px;}
+.slider-caption i { font-size: 18px;}
         .cart-total .total-cost  b {font-weight: normal; font-size: 16px;}

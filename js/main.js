@@ -75,6 +75,7 @@
         $('#btn-full-nav').click(function(){
           if($('#box-container').css('padding-left') == '70px'){
             $('i', this).transition({rotate: '0deg'});
+
             $('#box-container').animate({paddingLeft: '420px'});
             $('#left-panel').transition({x: '0'});
             $('#slider-wrapper').animate({paddingLeft: '350px'});
@@ -86,8 +87,8 @@
          }
         });
 
-        $('.tip-icons').tooltipster({ delay: 200, position: 'right', contentAsHTML: true,interactiveTolerance: '1200',
-          theme: 'tip-cart-success', touchDevices: false, trigger: 'custom', autoClose: true, animation: 'fall', interactive: 'true'
+        $('.tip-icons').tooltipster({ delay: 400, position: 'right', contentAsHTML: true,
+          theme: 'tip-cart-success', touchDevices: true, trigger: 'custom', autoClose: true, animation: 'grow', interactive: 'true'
         });
 
         $('.tip-description').tooltipster({ delay: 200, position: 'bottom', contentAsHTML: true,

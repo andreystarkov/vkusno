@@ -124,6 +124,7 @@
 						</div>
 					<div class="right" style="display:none">
 						<div class="shipping-content" style="display: block">
+
 							<?php if(count($shipping_methods) > 1) { ?>
 							<p><?php echo $text_shipping_method; ?></p>
 							<table class="form">
@@ -190,18 +191,7 @@
 					  </div>
 					</div>
 						<script type="text/javascript"><!--
-							<?php if(in_array(substr(VERSION, 0, 5), array('1.5.3', '1.5.4'))) { ?>
-								$('.colorbox').colorbox({
-									width: 640,
-									height: 480
-								});
-							<?php } else { ?>
-								$('.fancybox').fancybox({
-									width: 560,
-									height: 560,
-									autoDimensions: false
-								});
-							<?php }?>
+
 						//--></script>
 					<?php }?>
 

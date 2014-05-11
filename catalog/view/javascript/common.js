@@ -130,11 +130,14 @@ function addToCart(product_id, quantity) {
 				$('.btn-cart-icon').addClass('cart-success');
 				$('.cart-success').tooltipster('content', json['success']+'<i class="fa fa-check"></i>');
 				$('.cart-success').tooltipster('show');
+				    setTimeout(function() {
+				        $('.cart-success').tooltipster('hide');
+				    }, 4000);
 	//			$('.success').fadeIn('slow');
-		$('.btn-cart-icon').addClass('cart-icon-full');
+				$('.btn-cart-icon').addClass('cart-icon-full');
 				$('#cart-total').html(json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+			//	$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}
 		}
 	});
@@ -155,7 +158,7 @@ function addToWishList(product_id) {
 
 				$('#wishlist-total').html(json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+			//	$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}
 		}
 	});
@@ -177,7 +180,7 @@ function addToCompare(product_id) {
 
 				$('#compare-total').html(json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+			//	$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}
 		}
 	});

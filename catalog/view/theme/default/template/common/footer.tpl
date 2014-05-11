@@ -1,44 +1,54 @@
 </div>
+
 <div id="footer">
   <?php if ($informations) { ?>
   <div class="column">
-    <h3><?php echo $text_information; ?></h3>
+    <li></li>
+  </div>
+  <div class="column btns">
+    <h3></h3>
     <ul>
+    <li><a href="#">Отзывы</a></li>
+    </ul>
+ <!--  <h3><?php echo $text_information; ?></h3>
+    <ul>10
       <?php foreach ($informations as $information) { ?>
       <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
       <?php } ?>
-    </ul>
+    </ul> -->
   </div>
   <?php } ?>
-  <div class="column">
-    <h3><?php echo $text_service; ?></h3>
+
+  <div class="column btns">
+    <h3></h3>
     <ul>
-      <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
-      <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
-      <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
+    <li><a href="#">Партнеры</a></li>
     </ul>
   </div>
+
   <div class="column">
-    <h3><?php echo $text_extra; ?></h3>
-    <ul>
-      <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
-      <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
-      <li><a href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
-      <li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
-    </ul>
-  </div>
-  <div class="column">
-    <h3><?php echo $text_account; ?></h3>
-    <ul>
-      <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-      <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-      <li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
-      <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
-    </ul>
+      <h3></h3>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>&copy; 2014 М-Ресторатор</li>
+      </ul>
   </div>
 </div>
 
 <div id="powered"><?php echo $powered; ?></div>
 
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50865210-1', 'm-vkusno.ru');
+  ga('send', 'pageview');
+
+</script>
 </body></html>
