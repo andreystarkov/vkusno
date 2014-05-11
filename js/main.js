@@ -25,6 +25,15 @@
         $('.cart .item-link').transition({y:'200px'}, 10);
         $('.cart .price').transition({y:'-150px', scale: '0.1'}, 10);
 
+        var $container = $('.box-newsfeed');
+        // initialize
+        $container.masonry({
+          columnWidth: 20,
+          itemSelector: '.news-item'
+        });
+
+        var msnry = $container.data('masonry');
+
         $('.tip').tooltipster({ animation: 'grow', delay: 200,
           theme: 'tip-default', touchDevices: false, trigger: 'hover'
         });
@@ -87,7 +96,9 @@
          }
         });
 
-        $('.tip-icons').tooltipster({ delay: 400, position: 'right', contentAsHTML: true,
+        $('#box-container').css({'min-height': $(window).height()-140});
+
+        $('.tip-icons').tooltipster({ delay: 400, position: 'left', contentAsHTML: true,
           theme: 'tip-cart-success', touchDevices: true, trigger: 'custom', autoClose: true, animation: 'grow', interactive: 'true'
         });
 

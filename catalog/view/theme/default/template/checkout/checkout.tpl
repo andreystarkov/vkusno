@@ -71,7 +71,7 @@
 							<tr>
 								<td></td>
 								<td>
-									<a id="confirm" class="btn-send"><span><?php echo $button_confirm?></span><i class="fa fa-thumbs-o-up"></i> </a>
+									<a id="confirm" class="btn-send"><span><?php echo $button_confirm?></span> </a>
 								</td>
 							</tr>
 						</table>

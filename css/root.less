@@ -64,6 +64,7 @@
         position: relative;
         padding-top: 20px;
         width: 100%;
+        height: 100%;
         padding-left: 420px;
         padding-bottom: 100px;
     }
@@ -189,7 +190,8 @@
         height: 100%;
         color: #fff;
         box-shadow: 1px 0px 4px rgba(0,0,0,0.4);
-        background: mix(@brown, #666, 70%);
+       // background: mix(@brown, #666, 70%);
+        background: url(../images/bg-dark-4d.png) repeat;
         text-align: center;
 
         .empty-category {
@@ -223,7 +225,7 @@
             display:inline-block;
             text-align:center;
             overflow: hidden;
-            margin-bottom:20px;
+            padding-bottom:15px;
             min-height: 50px;
             a {
                 margin-right:15px;
@@ -454,10 +456,6 @@
         li { display: block; float: left; position: relative; }
     }
 
-    .btn-cart-icon {
-        position: relative;
-
-    }
 
     .btn-cart-round {
         display: none !important;
@@ -472,12 +470,12 @@
     }
 
     .cart-full {
-        color: #fff !important;
+    /*    color: #fff !important;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-
+        box-shadow: 0px 3px 0px darken(mix(@yellow, @color-darkred, 70%), 15%);
         background: mix(@yellow, @color-darkred, 70%) !important;
         i { color: @brown; }
-
+*/
     }
 
     .btn-go {

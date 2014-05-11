@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="css/main.css">
     <!--  <link rel="stylesheet" href="css/root.css"> -->
-<link rel="stylesheet/less" type="text/css" href="css/root.less" />
+    <link rel="stylesheet/less" type="text/css" href="css/root.less" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/fonts/hagincaps/font.css">
@@ -42,6 +42,7 @@
     <script type="text/javascript" src="/js/vendor/jquery.transit.min.js"></script>
     <script type="text/javascript" src="/js/vendor/jquery.tooltipster.min.js"></script>
     <script type="text/javascript" src="/js/vendor/snap.svg-min.js"></script>
+    <script type="text/javascript" src="/js/vendor/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/slider.js"></script>
     <script type="text/javascript" src="/js/hovers.js"></script>
 
@@ -117,14 +118,14 @@
     <script src="/js/vendor/modernizr.custom.js"></script>
 </head>
 <body>
-  <? if ($cart_contents > 0){ ?>
-    <div class="mini-cart-holder" >
-    <div class="btn-mini-cart tip" title="Щелкните, что бы посмотреть содержимое корзины" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
+
+    <div class="mini-cart-holder">
+    <div class="btn-mini-cart btn-cart-icon tip-icons" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
     <div class="cart-box">
        <?php echo $cart; ?>
     </div>
     </div>
-  <? } ?>
+
 <?php if ($categories) { ?>
 
 <?php } ?>
@@ -134,14 +135,14 @@
       <?php if ($categories) {
         ?>
         <div class="nav-items">
-            <div class="nav-icons">
+        <!--    <div class="nav-icons">
               <a class="tip-icons" title="Оформить покупку" href="<?php echo $checkout; ?>"><i class="fa fa-thumbs-o-up"></i></a>
               <a class="tip-icons" title="Перейти на главную страницу" href="<?php echo $home; ?>"><i class="fa fa-home"></i></a>
               <a class="tip-icons" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a>
               <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
                  <i class="fa-shopping-cart fa"></i> <span></span>
               </a>
-            </div>
+            </div> -->
         <?php foreach ($categories as $category) { ?>
 
 

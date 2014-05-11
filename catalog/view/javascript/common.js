@@ -134,6 +134,8 @@ function addToCart(product_id, quantity) {
 				        $('.cart-success').tooltipster('hide');
 				    }, 4000);
 	//			$('.success').fadeIn('slow');
+				var what = $('.btn-cart-icon span').html();
+				$('.btn-cart-icon span').html(parseInt(what)+1);
 				$('.btn-cart-icon').addClass('cart-icon-full');
 				$('#cart-total').html(json['total']);
 
