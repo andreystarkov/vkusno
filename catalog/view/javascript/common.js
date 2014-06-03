@@ -30,7 +30,7 @@ $(document).ready(function() {
 	$('#cart > .heading a').on('click', function() {
 		$('#cart').addClass('active');
 
-		$('#cart').load('index.php?route=module/cart #cart > *');
+		alert($('#cart').load('index.php?route=module/cart #cart-box'));
 
 		$('#cart').on('mouseleave', function() {
 			$(this).removeClass('active');
@@ -86,6 +86,129 @@ $(document).ready(function() {
 	});
 });
 
+
+function ocuCart() {
+    $('.ocu-cart .popup-content, .ocu-cart .popup-background').addClass('active');
+
+    $.ajax({
+        url: 'index.php?route=checkout/ocu_cart/update',
+        dataType: 'json',
+        success: function(json) {
+            if (json['output']) {
+                $('.ocu-cart .popup-content').html(json['output']);
+            }
+        }
+    });
+}
+
+function addToCart(product_id) {
+    if (product_id) {
+        var product_data = 'product_id=' + product_id;
+    } else {
+        var product_data = $('.product-info input[type=\'text\'], .product-info input[type=\'hidden\'], .product-info input[type=\'radio\']:checked, .product-info input[type=\'checkbox\']:checked, .product-info select, .product-info textarea');
+    }
+    $.ajax({
+        url: 'index.php?route=checkout/ocu_cart/update',
+        type: 'post',
+        data: product_data,
+        dataType: 'json',
+        success: function(json) {
+            $('.success, .warning, .attention, .information, .error').remove();
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            }
+
+            if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#notification').html('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                    $('.warning').fadeIn('slow');
+
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                }
+            }
+
+            if (json['success']) {
+
+	//			$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+				$('.btn-cart-icon').addClass('cart-success');
+				$('.cart-success').tooltipster('content', json['success']+'<i class="fa fa-check"></i>');
+				$('.cart-success').tooltipster('show');
+				    setTimeout(function() {
+				        $('.cart-success').tooltipster('hide');
+				    }, 4000);
+	//			$('.success').fadeIn('slow');
+				var what = $('.btn-cart-icon span').html();
+				$('.btn-cart-icon span').html(parseInt(what)+1);
+				$('.btn-cart-icon').addClass('cart-icon-full');
+				$('#cart-total').html(json['total']);
+
+                /* Ajax Cart */
+
+                $('.ocu-cart .popup-content, .ocu-cart .popup-background').addClass('active');
+
+                $.ajax({
+                    url: 'index.php?route=checkout/ocu_cart/update',
+                    dataType: 'json',
+                    success: function(json) {
+                        if (json['output']) {
+                            $('.cart-box').html(json['output']);
+                        }
+                    }
+                });
+                updateCart();
+        //        $('.cart-box').html(json['total']);
+            }
+        }
+    });
+}
+
+
+function removeCart(key) {
+    $.ajax({
+        url: 'index.php?route=checkout/ocu_cart/update',
+        type: 'post',
+        data: 'remove=' + key,
+        dataType: 'json',
+        success: function(json) {
+            $('.success, .warning, .attention, .information').remove();
+
+            if (json['output']) {
+                $('.ocu-cart .cart-items').html(json['total']);
+
+                $('.ocu-cart .popup-content').html(json['output']);
+            }
+        }
+    });
+}
+
+function updateCart() {
+
+    var values = '';
+
+    $.each($('.quantity input[type=text]').serializeArray(), function(i, field) {
+        values += '&' + [field.name] + '=' + encodeURIComponent(field.value);
+    });
+
+    $.ajax({
+        url: 'index.php?route=checkout/ocu_cart',
+        type: 'post',
+        data: values,
+        success: function() {
+            $.ajax({
+                url: 'index.php?route=checkout/ocu_cart/update',
+                dataType: 'json',
+                success: function(json) {
+                    if (json['output']) {
+                   //     $('.ocu-cart .cart-items').html(json['total']);
+                        $('.cart-box').html(json['output']);
+                    }
+                }
+            });
+        }
+    });
+}
 function getURLVar(key) {
 	var value = [];
 
@@ -109,7 +232,7 @@ function getURLVar(key) {
 		}
 	}
 }
-
+/*
 function addToCart(product_id, quantity) {
 	quantity = typeof(quantity) != 'undefined' ? quantity : 1;
 
@@ -126,6 +249,7 @@ function addToCart(product_id, quantity) {
 			}
 
 			if (json['success']) {
+
 	//			$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
 				$('.btn-cart-icon').addClass('cart-success');
 				$('.cart-success').tooltipster('content', json['success']+'<i class="fa fa-check"></i>');
@@ -143,7 +267,7 @@ function addToCart(product_id, quantity) {
 			}
 		}
 	});
-}
+} */
 function addToWishList(product_id) {
 	$.ajax({
 		url: 'index.php?route=account/wishlist/add',

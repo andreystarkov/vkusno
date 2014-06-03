@@ -60,7 +60,7 @@
 							</tr>
 							<tr style="display:none">
 								<td><span class="required">*</span> <?php echo $entry_email; ?></td>
-								<td><input type="text" name="email" value="test@andreystarkov.ru" class="large-field"/>
+								<td><input type="text" name="email" value="root@webscapes.ru" class="large-field"/>
 								</td>
 							</tr>
 

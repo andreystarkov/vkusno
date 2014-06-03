@@ -8,14 +8,15 @@
   <div class="column btns">
     <h3></h3>
     <ul>
-    <li><a href="#">Отзывы</a></li>
-    </ul>
- <!--  <h3><?php echo $text_information; ?></h3>
-    <ul>10
+    <li><a href="http://m-vkusno.ru/index.php?route=product/testimonial">Отзывы</a></li>
+    <li><a href="http://m-vkusno.ru/index.php?route=product/isitestimonial">Написать отзыв</a></li>
       <?php foreach ($informations as $information) { ?>
       <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
       <?php } ?>
-    </ul> -->
+    </ul>
+
+
+
   </div>
   <?php } ?>
 

@@ -13,13 +13,33 @@
               $(this).parent().addClass('empty-category');
             }
         });
+
+        $(".box-child").each(function(){
+          var menuCount = $(this).children().length;
+          if (menuCount > 5){
+            if( !($('.item', this).hasClass('sub-parent')) ) {
+              $(this).css({overflow: 'hidden', paddingTop: '5px', paddingRight: '35px', paddingLeft: '10px'});
+              $('.item', this).addClass('grid-menu');
+              $('.item', this).css({padding: '5px 10px'});
+              $('li', this).css({display: 'inline-block', 'float': 'left', width: 'auto'});
+           }
+          }
+        });
+
   //      $('.cart-box').transition({x: '800px'}, 10);
         appendClass( $('.jcarousel-next-horizontal'), '<i class="fa fa-angle-right"></i>');
         appendClass( $('.jcarousel-prev-horizontal'), '<i class="fa fa-angle-left"></i>');
         appendClass( $('#left-panel .item span'), ' товаров');
-        appendClass( $('#left-panel .child'), '<b class="fa this fa-angle-double-right"></b>');
+     //   appendClass( $('#left-panel .child'), '<b class="fa this fa-angle-double-right"></b>');
         appendClass( $('.sub-parent').parent(), '<div class="btn-dropdown"><i class="fa fa-angle-down"></i></div>');
+   //   $(".nano").nanoScroller();
+        $('.box-page ul li').each(function(){
+          $(this).html('<i class="fa fa-angle-right"></i> ' + $(this).html());
+        });
 
+        $('.heading', '#carousel0').html('Наши рестораны').css({'margin-left': '-40px'});
+
+        $('.heading', '#carousel1').html('Наши партнеры').css({'margin-left': '-40px'});
         $('#left-panel .item span').transition({perspective: '250px', rotateY: '+90deg'}, 10);
         $('.cart .btn-cart').transition({y:'200px'}, 10);
         $('.cart .item-link').transition({y:'200px'}, 10);
@@ -33,6 +53,7 @@
         });
 
         var msnry = $container.data('masonry');
+
 
         $('.tip').tooltipster({ animation: 'grow', delay: 200,
           theme: 'tip-default', touchDevices: false, trigger: 'hover'
@@ -103,7 +124,7 @@
         });
 
         $('.tip-description').tooltipster({ delay: 200, position: 'bottom', contentAsHTML: true,
-          theme: 'tip-product-description', touchDevices: false, trigger: 'hover', animation: 'grow', offsetY: '-20'
+          theme: 'tip-product-description', touchDevices: true, trigger: 'hover', animation: 'grow', offsetY: '-20'
         });
 
         $(window).keypress(function() {
@@ -119,6 +140,7 @@
           toggleNavSubCategory($(this));
         });
          // toggleNavCategory($('.parent-84'));
+         $('#left-panel .item span').css({'z-index': '9999'});
          $('#left-panel .item').hover(function(){
             $('span',this).transition({opacity: 1, perspective: '250px', rotateY: '30deg'});
           }, function(){

@@ -1,16 +1,23 @@
+
     .checkout-content .block-left { margin-top: 30px; width: 90%; }
     .checkout-content .block-left input, .checkout-content .block-left textarea { width: 100%; }
 
-       .cart-info .image, .cart-info td.total { width: 0; display: none; overflow: hidden; }
-       .cart-info .name a, .cart-info tbody td { font-size: 22px;}
-        .cart-total .total-cost {font-size: 18px;}
-        .cart-info tbody td.quantity input { margin-top: 5px; width: 60px;}
-        .cart-total .total-cost:last-child { font-size: 26px;}
-        .remove .fa { font-size: 32px;}
-        .name {vertical-align: middle;}
-        .name a, .price {
-            padding: 0;
-        }
+    #left-panel .logo { display: none; }
+
+   .cart-info .image, .cart-info td.total { width: 0; display: none; overflow: hidden; }
+   .cart-info .name a, .cart-info tbody td { font-size: 22px;}
+    .cart-total .total-cost {font-size: 18px;}
+    .cart-info tbody td.quantity input { margin-top: 5px; width: 60px;}
+    .cart-total .total-cost:last-child { font-size: 26px;}
+    .remove .fa { font-size: 32px; }
+    .name { vertical-align: middle; }
+    .name a, .price {
+        padding: 0;
+    }
+
+    #box-container { padding-left: 0px; padding-right: 0;}
+   .heading { text-align: center; }
+    #btn-full-nav { display: none;}
    .slider-caption {
         display: none;
         position: absolute;
@@ -24,5 +31,5 @@
     }
 
     .slider-caption h3 { font-size: 22px;}
-.slider-caption i { font-size: 18px;}
-        .cart-total .total-cost  b {font-weight: normal; font-size: 16px;}
+    .slider-caption i { font-size: 18px;}
+    .cart-total .total-cost  b {font-weight: normal; font-size: 16px;}

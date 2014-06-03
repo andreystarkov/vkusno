@@ -1,0 +1,151 @@
+/**
+ * OpenCart Ukrainian Community
+ *
+ * LICENSE
+ *
+ * This source file is subject to the GNU General Public License, Version 3
+ * It is also available through the world-wide-web at this URL:
+ * http://www.gnu.org/copyleft/gpl.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+
+ *
+ * @category   OpenCart
+ * @package    OCU Cart
+ * @copyright  Copyright (c) 2011 Eugene Lifescale by OpenCart Ukrainian Community (http://opencart-ukraine.tumblr.com)
+ * @license    http://www.gnu.org/copyleft/gpl.html     GNU General Public License, Version 3
+ */
+
+
+.ocu-cart .popup-content {
+    clear: both;
+    display: none;
+    position: absolute;
+    top: 150px;
+    left:0;
+    margin-left: -650px;
+    padding: 8px;
+    min-height: 150px;
+    width: 600px;
+    border-top: 1px solid #EEEEEE;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px #555;
+    -moz-box-shadow: 0px 0px 10px #555;
+    box-shadow: 0px 0px 10px #555;
+    background: #FFF;
+    z-index:999999;
+}
+
+
+.ocu-cart .popup-content .header {
+    background: #585858;
+    text-shadow: black 0 1px 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: 170%;
+    font-weight: normal;
+    line-height: 36px;
+    margin-bottom:10px;
+}
+
+.ocu-cart .popup-content .header span {
+    padding: 0 15px;
+}
+
+.ocu-cart .cart-total-items {
+    position: absolute;
+    top: 60px;
+    left: 13px;
+}
+
+.ocu-cart .popup-background.active,
+.ocu-cart .popup-content.active {
+    display: block;
+}
+
+.ocu-cart table.cart {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+.ocu-cart table.cart td {
+    vertical-align: top;
+    padding: 10px 5px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.ocu-cart table.cart .image {
+    width: 1px;
+}
+.ocu-cart table.cart .image img {
+    border: 1px solid #EEEEEE;
+    text-align: left;
+}
+.ocu-cart table.cart .name small {
+    color: #666;
+}
+
+.ocu-cart table.cart .quantity,
+.ocu-cart table.cart td.total,
+.ocu-cart table.total td.currencies {
+    color:#767676;
+    text-align: left;
+    width: 50px;
+    line-height: 39px;
+}
+.ocu-cart table.cart .remove {
+    text-align: left;
+    width:20px;
+}
+.ocu-cart table.cart .remove img {
+    cursor: pointer;
+}
+
+.ocu-cart table.cart .remove img {
+    cursor: pointer;
+}
+
+.ocu-cart .popup-content .empty {
+    margin: 20px 0;
+    text-align:center;
+}
+.ocu-cart table.total {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.ocu-cart table.total td.total {
+    color: #464646;
+    font-size: 190%;
+    text-align: right;
+    padding-right:10px;
+}
+
+.ocu-cart .popup-content .close-popup {
+    background: url(../image/ocu-close-popup.png) no-repeat;
+    height: 20px;
+    width: 20px;
+    top: 17px;
+    right: 18px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.ocu-cart .popup-background {
+    clear: both;
+    display: none;
+    position: fixed;
+    background: #777;
+    opacity: 0.3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:3000;
+}
+

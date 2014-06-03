@@ -16,7 +16,6 @@
                 }
             },
 
-        // skelJS Plugins (ditto; don't change unless you know what you're doing)
             skelJSPlugins: {
                 panels: {
                     panels: {
@@ -24,14 +23,14 @@
                             breakpoints: 'narrower',
                             position: 'left',
                             size: 300,
-                            html: '<div data-action="moveElement" data-args="left-panel"></div></div>'
+                            html: '<div data-action="moveElement" data-args="left-panel"></div>'
                         },
 
                          rightPanel: {
                             breakpoints: 'narrower',
                             position: 'right',
                             size: 240,
-                            html: '<div data-action="copyHTML" data-args="menu"></div></div>'
+                            html: '<div data-action="moveElement" data-args="mini-cart"></div>'
                         }
                     },
                     overlays: {

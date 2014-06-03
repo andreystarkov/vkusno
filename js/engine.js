@@ -14,6 +14,7 @@
       var box = '.sub-child-'+id;
       var sub = '<? echo $paths[1]; ?>';
 
+
        if(link.hasClass('opened')){
         $('i', obj).transition({rotate: '0deg'}, 600);
         $('.sub-parent').removeClass('opened');
@@ -26,6 +27,7 @@
         if (sub == id) { link.addClass('active'); }
         $(box).slideDown(500);
      }
+
     }
 
     function toggleNavCategory(obj){

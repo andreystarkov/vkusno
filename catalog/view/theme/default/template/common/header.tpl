@@ -21,15 +21,18 @@
     <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
     <?php } ?>
 
-    <link rel="stylesheet" href="css/main.css">
-    <!--  <link rel="stylesheet" href="css/root.css"> -->
+    <!-- <link rel="stylesheet" href="css/main.css">-->
+
+    <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet/less" type="text/css" href="css/root.less" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/fonts/hagincaps/font.css">
     <link rel="stylesheet" type="text/css" href="/css/fullwidth-slider.css" />
     <link rel="stylesheet" type="text/css" href="/css/tooltipster.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nanoscroller.css" />
 
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="/js/vendor/bootstrap.min.js"></script>
@@ -41,10 +44,12 @@
     <script type="text/javascript" src="/js/vendor/jquery.slitslider.js"></script>
     <script type="text/javascript" src="/js/vendor/jquery.transit.min.js"></script>
     <script type="text/javascript" src="/js/vendor/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.nanoscroller.min.js"></script>
     <script type="text/javascript" src="/js/vendor/snap.svg-min.js"></script>
     <script type="text/javascript" src="/js/vendor/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/slider.js"></script>
     <script type="text/javascript" src="/js/hovers.js"></script>
+
 
     <script src="/js/main.js"></script>
 
@@ -59,8 +64,7 @@
     <script type="text/javascript" src="/js/skel-config.js"></script>
 
 
-
-    <script src="/js/vendor/less-1.7.0.min.js"></script>
+    <!--<script src="/js/vendor/less-1.7.0.min.js"></script>-->
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -119,7 +123,7 @@
 </head>
 <body>
 
-    <div class="mini-cart-holder">
+    <div class="mini-cart-holder" id="mini-cart">
     <div class="btn-mini-cart btn-cart-icon tip-icons" id="btn-cart-popup"><i class="fa-shopping-cart fa"></i> <span><? echo $this->cart->countProducts(); ?></span> <b>товаров в корзине</b> <i class="fa fa-angle-right"></i> </div>
     <div class="cart-box">
        <?php echo $cart; ?>
@@ -135,14 +139,14 @@
       <?php if ($categories) {
         ?>
         <div class="nav-items">
-        <!--    <div class="nav-icons">
-              <a class="tip-icons" title="Оформить покупку" href="<?php echo $checkout; ?>"><i class="fa fa-thumbs-o-up"></i></a>
-              <a class="tip-icons" title="Перейти на главную страницу" href="<?php echo $home; ?>"><i class="fa fa-home"></i></a>
-              <a class="tip-icons" title="Ваш профиль пользователя" href="<?php echo $account; ?>"><i class="fa fa-user"></i></a>
-              <a class="tip-icons btn-cart-icon" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
+         <div class="nav-icons">
+              <a class="tip" title="Отзывы" href="http://m-vkusno.ru/index.php?route=product/testimonial"><i class="fa fa-comment-o"></i></a>
+              <a class="tip" title="Оставить отзыв" href="http://m-vkusno.ru/index.php?route=product/isitestimonial"><i class="fa fa-pencil-square-o"></i></a>
+              <a class="tip" title="Информация о доставке" href="http://m-vkusno.ru/index.php?route=information/information&information_id=7"><i class="fa fa-info"></i></a>
+              <a class="tip" title="Открыть корзину" href="<?php echo $shopping_cart; ?>">
                  <i class="fa-shopping-cart fa"></i> <span></span>
               </a>
-            </div> -->
+            </div>
         <?php foreach ($categories as $category) { ?>
 
 

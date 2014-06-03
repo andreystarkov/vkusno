@@ -1,0 +1,72 @@
+---------- Date: 2014-04-21 16:52:29 ~ IP : 95.105.118.35 ----------
+REQUEST URI : /admin/index.php?route=extension/module&amp;token=820c6540854f9609e6a24e259f85aa56
+MOD DETAILS:
+   modFile   : /home/vkusno/data/www/m-vkusno.ru/vqmod/xml/add_support_for_news_plus_in_seo_pro.xml
+   id        : Add Support for News Plus in SEO Pro
+   version   : 1.0
+   vqmver    : 2.0
+   author    : CODEONETEAM
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/seo_pro.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-04-21 18:22:27 ~ IP : 95.105.118.35 ----------
+REQUEST URI : /
+MOD DETAILS:
+   modFile   : /home/vkusno/data/www/m-vkusno.ru/vqmod/xml/add_support_for_news_plus_in_seo_pro.xml
+   id        : Add Support for News Plus in SEO Pro
+   version   : 1.0
+   vqmver    : 2.0
+   author    : CODEONETEAM
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/seo_pro.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-04-21 18:26:35 ~ IP : 95.105.118.35 ----------
+REQUEST URI : /admin/index.php?route=module/news/listing&amp;token=655510c0af6410c55ed62c14cb90b10a
+MOD DETAILS:
+   modFile   : /home/vkusno/data/www/m-vkusno.ru/vqmod/xml/add_support_for_news_plus_in_seo_pro.xml
+   id        : Add Support for News Plus in SEO Pro
+   version   : 1.0
+   vqmver    : 2.0
+   author    : CODEONETEAM
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/seo_pro.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-04-21 18:35:25 ~ IP : 95.105.118.35 ----------
+REQUEST URI : /admin/index.php?route=extension/module&amp;token=655510c0af6410c55ed62c14cb90b10a
+MOD DETAILS:
+   modFile   : /home/vkusno/data/www/m-vkusno.ru/vqmod/xml/add_support_for_news_plus_in_seo_pro.xml
+   id        : Add Support for News Plus in SEO Pro
+   version   : 1.0
+   vqmver    : 2.0
+   author    : CODEONETEAM
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/seo_pro.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-04-21 18:38:37 ~ IP : 95.105.118.35 ----------
+REQUEST URI : /admin/index.php?route=module/vqmod_manager&amp;token=655510c0af6410c55ed62c14cb90b10a
+MOD DETAILS:
+   modFile   : /home/vkusno/data/www/m-vkusno.ru/vqmod/xml/add_support_for_news_plus_in_seo_pro.xml
+   id        : Add Support for News Plus in SEO Pro
+   version   : 1.0
+   vqmver    : 2.0
+   author    : CODEONETEAM
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/seo_pro.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-04-21 18:38:44 ~ IP : 95.105.118.35 ----------
+REQUEST URI : /admin/index.php?route=module/vqmod_manager&amp;token=655510c0af6410c55ed62c14cb90b10a
+MOD DETAILS:
+   modFile   : /home/vkusno/data/www/m-vkusno.ru/vqmod/xml/add_support_for_news_plus_in_seo_pro.xml
+   id        : Add Support for News Plus in SEO Pro
+   version   : 1.0
+   vqmver    : 2.0
+   author    : CODEONETEAM
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/seo_pro.php] (SKIPPED)
+----------------------------------------------------------------------
+
+

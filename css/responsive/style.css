@@ -1,0 +1,48 @@
+.box-page p {
+    font-family:'Noto Sans';
+    font-size: 18px;
+}
+
+.box-page ul { display: block; margin-top: 10px;list-style: none; }
+.box-page ul li i {
+    font-size: 25px;
+    padding-right: 12px;
+    color: #a6483a;
+}
+
+.box-page ul li {
+    font-family:'Noto Sans';
+    font-size: 20px;
+    padding-top:9px;
+    margin-bottom:2px;
+}
+#left-panel .level-2  {
+    padding-left:5px;
+    padding-right: 30px;
+}
+#left-panel .level-2 li a {
+    padding:3px 15px!important;
+    border-right: 2px dashed rgba(255,255,255,0.1);
+}
+
+#left-panel .level-2 li {
+    position: relative;
+    width: auto;
+    display: inline-block;
+    float: left;
+}
+/*
+.nano .nano-pane   { background: #888; }
+.nano .nano-slider { background: #111; }
+.box-page h3 {
+font-size: 40px !important;
+margin-top: 30px;
+font-family: 'Bebas Neue' !important;
+font-style: normal !important;
+}
+#left-panel .box-child.level-2, #left-panel .box-sub-child.level-2 {
+display: inline-block;
+max-height: 200px;
+direction: rtl;
+overflow-y: scroll;
+} */

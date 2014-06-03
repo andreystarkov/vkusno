@@ -16,9 +16,30 @@
             font-family: 'Bebas Neue';
             font-size: 20px !important;
         }
+        #left-panel .level-2  li {
+            position: relative;
+            width: auto;
+            display: inline-block;
+            float: left;
+        }
 
-    #left-panel .btn-dropdown i { font-size: 18px;}
-    #left-panel .item.child { padding: 6px 20px; }
+#left-panel .box-sub-child .item {
+    padding: 5px 10px !important;
+}
+#left-panel .level-2 {
+    padding-right: 30px;
+    padding-left: 5px;
+}
+#left-panel .item, #left-panel .item.child { padding: 3px 35px;}
+#left-panel .level-2 .item {
+    padding-right:25px;
+    padding-left: 5px;
+}
+#left-panel { padding-top: 10px;}
+#left-panel .logo { display: none; }
+#left-panel .item.child.active .this { font-size: 18px;}
+    #left-panel .btn-dropdown i { font-size: 32px;}
+
      .left-nav a.active i {
         font-size:13px !important;
         color: rgba(255,255,255,0.3);

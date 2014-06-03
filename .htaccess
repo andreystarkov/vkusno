@@ -1,9 +1,6 @@
-AuthUserFile /home/vkusno/data/www/.vkusno-pass
-AuthType Basic
-AuthName "private area"
-Require valid-user
 
-# 1.To use URL Alias you need to be running apache with mod_rewrite enabled. 
+
+# 1.To use URL Alias you need to be running apache with mod_rewrite enabled.
 
 # 2. In your opencart directory rename htaccess.txt to .htaccess.
 
@@ -11,7 +8,7 @@ Require valid-user
 
 Options +FollowSymlinks
 
-# Prevent Directoy listing 
+# Prevent Directoy listing
 Options -Indexes
 
 # Prevent Direct Access to files
@@ -22,7 +19,7 @@ Options -Indexes
 
 # SEO URL Settings
 RewriteEngine On
-# If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/ 
+# If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/
 
 RewriteBase /
 RewriteRule ^sitemap.xml$ index.php?route=feed/google_sitemap [L]
@@ -33,7 +30,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
 RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
 
-### Additional Settings that may need to be enabled for some servers 
+### Additional Settings that may need to be enabled for some servers
 ### Uncomment the commands by removing the # sign in front of it.
 ### If you get an "Internal Server Error 500" after enabling any of the following settings, restore the # as this means your host doesn't allow that.
 
@@ -44,7 +41,7 @@ RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
 # php_flag magic_quotes_gpc Off
 
 # 3. Set max upload file size. Most hosts will limit this and not allow it to be overridden but you can try
-# php_value upload_max_filesize 999M
+php_value upload_max_filesize 999M
 
 # 4. set max post size. uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
 # php_value post_max_size 999M
