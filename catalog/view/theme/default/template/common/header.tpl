@@ -21,10 +21,10 @@
     <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
     <?php } ?>
 
-    <!-- <link rel="stylesheet" href="css/main.css">-->
+    <link rel="stylesheet" href="css/main.css">
 
     <link rel="stylesheet" href="css/root.css">
-    <link rel="stylesheet/less" type="text/css" href="css/root.less" />
+    <!-- <link rel="stylesheet/less" type="text/css" href="css/root.less" />-->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/fonts/hagincaps/font.css">
@@ -64,7 +64,7 @@
     <script type="text/javascript" src="/js/skel-config.js"></script>
 
 
-    <!--<script src="/js/vendor/less-1.7.0.min.js"></script>-->
+    <!-- <script src="/js/vendor/less-1.7.0.min.js"></script>-->
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
@@ -196,28 +196,41 @@
   <div id="slider-wrapper">
 
       <div class="slider-caption caption-current" id="caption-4">
+      <div class="wrp">
         <h3>Стейк Шампань.</h3>
         <i>Говяжья вырезка, фисташки, шампанское, рис,масло сливочное, ветчина пармская, грибы вешенки, красный лук, микс-салат.</i>
-       <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>
+      </div>
       </div>
 
       <div class="slider-caption" id="caption-2">
+      <div class="wrp">
         <h3>Гриль соте Алабиф.</h3>
         <i>Вырезка говяжья, перец "Огонек", томаты черри, цукини, шампиньоны, специи, сыр Пармезан, масло оливковое, микс-салат.</i>
-         <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>
+      </div>
       </div>
 
       <div class="slider-caption" id="caption-3">
+      <div class="wrp">
         <h3>Морской бродет из гребешков.</h3>
         <i>Лисички, шампиньоны, гребешки, морковь, корень сельдерея, лук-порей, лайм, специи, масло оливковое.</i>
-       <div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>
       </div>
+      </div>
+
+      <div class="slider-caption" id="caption-5">
+      <div class="wrp">
+        <h3>Бургер с мясом краба.</h3>
+        <i>Мясо краба, томаты черри, красный лук, специи.</i>
+      </div>
+      </div>
+
+
 
      <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
       <ul class="itemwrap">
         <li data-caption="caption-4" class="caption-4 current"><img src="/images/7.jpg" alt="img07"/></li>
         <li data-caption="caption-2" class="caption-2"><img src="/images/8.jpg" alt="img08"/></li>
         <li data-caption="caption-3" class="caption-3"><img src="/images/slider/brodet.jpg" alt="img08"/></li>
+        <li data-caption="caption-5" class="caption-5"><img src="/images/slider/burger.jpg" alt="img08"/></li>
       </ul>
       <nav>
         <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>

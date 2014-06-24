@@ -110,7 +110,7 @@ $(function() {
             var onEndAnimationNextItem = function() {
                 var caption = $('#'+$(this).attr('data-caption'));
                 $(caption).css({display: 'block'});
-                console.log($(this).attr('data-caption'));
+                console.log($(this).attr('class')+' = '+$(this).attr('data-caption'));
                 $(caption).transition({ rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700);
                 this.removeEventListener( animEndEventName, onEndAnimationNextItem );
                 classie.addClass( this, 'current' );

@@ -7,9 +7,9 @@
     @import "http://webfonts.ru/import/noto.css";
     @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic);
     @import url(http://vesna56.ru/fonts/hagincaps/font.css);
-    @import "http://webfonts.ru/import/airport.css";
+  //  @import "http://webfonts.ru/import/airport.css";
     @import "http://webfonts.ru/import/attentica.css";
-    @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300&subset=latin,cyrillic);
+ //   @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300&subset=latin,cyrillic);
 
     @font-hagin: 'Hagin Caps Medium';
     @font-header: 'Bebas Neue';
@@ -74,12 +74,15 @@
         text-align: center;
         display: block;
     }
-    #box-content {
+    #box-content, #content {
         padding-top:0px;
         width:100%;
         padding-bottom: 100px;
         padding-right: 40px;
-
+        p {
+            font-size: 18px;
+            font-family: 'Noto Sans';
+        }
         h1 {
 
             &.has-icon {
@@ -457,18 +460,6 @@
     }
 
 
-    .btn-cart-round {
-        display: none !important;
-        padding: 8px 15px;
-        background: @red;
-        font-size: 32px;
-        border-radius: 50px;
-        i {
-            color: #fff;
-        }
-        display: inline-block;
-    }
-
     .cart-full {
     /*    color: #fff !important;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
@@ -639,7 +630,7 @@
                 top: 15px;
                 left: 30px;
                 opacity: 1;
-                font-family: 'Open Sans';
+                font-family: 'Noto Sans';
                 font-weight: 400;
                 padding: 12px;
                 color: mix(#fff, #d9c3a8, 60%);
@@ -1292,6 +1283,13 @@
     }
 
     .slider-caption {
+        .wrp {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
         display: none;
         position: absolute;
         z-index: 6666;
@@ -1321,8 +1319,21 @@
             color: mix(@color-light-brown, @brown, 10%);
             font-family: @font-subheader;
         }
-        b {
 
+        .btn-cart-round {
+            position: absolute;
+            left: 43%;
+            bottom: -45px;
+            padding: 8px 18px;
+            background: @red;
+            border-bottom: 5px solid desaturate(darken(@red, 17%), 5%);
+            font-size: 32px;
+            border-radius: 50px;
+            .fa {
+                text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+                color: #fff;
+            }
+            display: inline-block;
         }
     }
 
@@ -1713,7 +1724,25 @@
         }
     }
 
-    .btn-send {
+    #content {
+        p {
+            a { font-size:18px; color: @red; text-decoration: underline;
+                &:hover {
+                        color: lighten(@red, 20%);
+                        text-decoration: none;
+                    }
+            }
+        }
+        .button {
+                background: @yellow;
+                padding: 10px 25px 8px 25px;
+                font-family: @font-header;
+                color: @brown;
+                font-size:26px;
+                line-height: 30px;
+        }
+    }
+    .btn-send, .button {
         display: inline-block !important;
         font-size: 20px;
         font-size:26px;

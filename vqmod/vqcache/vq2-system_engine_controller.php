@@ -69,6 +69,14 @@ abstract class Controller {
 		}		
 	}
 
+
+                
+                    protected function plural_tool($number, $total, $text) {
+                        $cases = array (2, 0, 1, 1, 1, 2);
+                        return $number . ' ' . $text[(($number % 100) > 4 && ($number % 100) < 20) ? 2 : $cases[min($number % 10, 5)]] . '<div class="total">' . $total . '</div>';
+                    }
+                
+            
 	protected function render() {
 		foreach ($this->children as $child) {
 			$this->data[basename($child)] = $this->getChild($child);

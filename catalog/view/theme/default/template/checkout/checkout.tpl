@@ -256,15 +256,20 @@ $('#checkout_form select[name=\'country_id\']').trigger('change');
 			beforeSend: function() {
 				$('#confirm').bind('click', false);
 				$('#confirm').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+				$('#confirm').html('Подождите несколько секунд...');
 			},
 			complete: function() {
 				$('#confirm').unbind('click', false);
+				console.log('cmpl');
 				$('.wait').remove();
 			},
+			error: function(){
+				console.log('err');
+			},
 			success: function(json) {
-				$('.warning').remove();
-				$('.error').remove();
-
+			//	$('.warning').remove();
+			//	$('.error').remove();
+				console.log('sccl');
 				if (json['redirect']) {
 					location = json['redirect'];
 				}

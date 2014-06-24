@@ -14,7 +14,9 @@
     .name a, .price {
         padding: 0;
     }
-
+    .box-item .boxy {
+        margin-left: 10%;
+    }
     #box-container { padding-left: 0px; padding-right: 0;}
    .heading { text-align: center; }
     #btn-full-nav { display: none;}

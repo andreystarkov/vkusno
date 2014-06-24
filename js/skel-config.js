@@ -30,7 +30,7 @@
                             breakpoints: 'narrower',
                             position: 'right',
                             size: 240,
-                            html: '<div data-action="moveElement" data-args="mini-cart"></div>'
+                            html: '<div data-action="moveElement" data-args="cart-box"></div>'
                         }
                     },
                     overlays: {

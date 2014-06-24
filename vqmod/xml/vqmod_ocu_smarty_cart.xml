@@ -1,0 +1,157 @@
+<!--
+
+/**
+ * OpenCart Ukrainian Community
+ *
+ * LICENSE
+ *
+ * This source file is subject to the GNU General Public License, Version 3
+ * It is also available through the world-wide-web at this URL:
+ * http://www.gnu.org/copyleft/gpl.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+
+ *
+ * @category   OpenCart
+ * @package    OCU Smarty Cart
+ * @copyright  Copyright (c) 2011 Eugene Lifescale by OpenCart Ukrainian Community (http://opencart-ukraine.tumblr.com)
+ * @license    http://www.gnu.org/copyleft/gpl.html     GNU General Public License, Version 3
+ */
+
+
+-->
+
+<modification>
+    <id>OpenCart Smarty Cart</id>
+    <version>1.5.1</version>
+    <vqmver>1.2/10.08.2011</vqmver>
+    <author>Eugene Lifescale (a.k.a. Shaman)</author>
+    <file name="system/engine/controller.php">
+        <operation>
+            <search position="before">
+                <![CDATA[protected function render() {]]>
+            </search>
+            <add>
+                <![CDATA[
+                    protected function plural_tool($number, $total, $text) {
+                        $cases = array (2, 0, 1, 1, 1, 2);
+                        return $number . ' ' . $text[(($number % 100) > 4 && ($number % 100) < 20) ? 2 : $cases[min($number % 10, 5)]] . '<div class="total">' . $total . '</div>';
+                    }
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <!--
+    <file name="catalog/controller/common/header.php">
+        <operation>
+            <search position="replace">
+                <![CDATA[$this->data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));]]>
+            </search>
+            <add>
+                <![CDATA[
+                    switch (isset($this->request->cookie['language']) && $this->request->cookie['language']) {
+                        case 'ru':
+                            $this->data['text_items'] =  'В корзине '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товара','товаров'));
+                        break;
+                        case 'ua':
+                            $this->data['text_items'] =  'У кошику '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товару','товарів'));
+                        break;
+                        default:
+                            $this->data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+                    }
+                ]]>
+            </add>
+        </operation>
+    </file>
+    -->
+
+    <file name="catalog/controller/module/ocu_cart.php">
+        <operation>
+            <search position="replace">
+                <![CDATA[$this->data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));]]>
+            </search>
+            <add>
+                <![CDATA[
+                    switch (isset($this->request->cookie['language']) && $this->request->cookie['language']) {
+                        case 'ru':
+                            $this->data['text_items'] =  'В корзине '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товара','товаров'));
+                        break;
+                        case 'ua':
+                            $this->data['text_items'] =  'У кошику '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товару','товарів'));
+                        break;
+                        default:
+                            $this->data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+                    }
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <!--
+    <file name="catalog/controller/checkout/cart.php">
+        <operation>
+            <search position="replace">
+                <![CDATA[$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));]]>
+            </search>
+            <add>
+                <![CDATA[
+                    switch (isset($this->request->cookie['language']) && $this->request->cookie['language']) {
+                        case 'ru':
+                            $json['total'] =  'В корзине '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товара','товаров'));
+                        break;
+                        case 'ua':
+                            $json['total'] = 'У кошику '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товару','товарів'));
+                        break;
+                        default:
+                            $json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+                    }
+                ]]>
+            </add>
+        </operation>
+    </file>
+    -->
+    <file name="catalog/controller/checkout/ocu_cart.php">
+        <operation>
+            <search position="replace">
+                <![CDATA[$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));]]>
+            </search>
+            <add>
+                <![CDATA[
+                    switch (isset($this->request->cookie['language']) && $this->request->cookie['language']) {
+                        case 'ru':
+                            $json['total'] =  'В корзине '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товара','товаров'));
+                        break;
+                        case 'ua':
+                            $json['total'] = 'У кошику '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товару','товарів'));
+                        break;
+                        default:
+                            $json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+                    }
+                ]]>
+            </add>
+        </operation>
+    </file>
+</modification>

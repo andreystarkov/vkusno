@@ -25,8 +25,8 @@
            }
           }
         });
-
   //      $('.cart-box').transition({x: '800px'}, 10);
+      //  appendClass( $('.slider-caption .wrp'), '<div class="btn-cart-round"><b class="fa fa-shopping-cart"></b></div>');
         appendClass( $('.jcarousel-next-horizontal'), '<i class="fa fa-angle-right"></i>');
         appendClass( $('.jcarousel-prev-horizontal'), '<i class="fa fa-angle-left"></i>');
         appendClass( $('#left-panel .item span'), ' товаров');

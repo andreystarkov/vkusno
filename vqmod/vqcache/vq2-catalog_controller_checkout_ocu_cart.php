@@ -385,7 +385,7 @@ class ControllerCheckoutOCUCart extends Controller {
             if (!isset($json['error'])) {
                 $this->cart->add($this->request->post['product_id'], $quantity, $option);
 
-                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], "http://m-vkusno.ru/index.php?route=checkout/cart");
+                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/ocu_cart'));
 
                 unset($this->session->data['shipping_methods']);
                 unset($this->session->data['shipping_method']);
@@ -524,7 +524,26 @@ class ControllerCheckoutOCUCart extends Controller {
             array_multisort($sort_order, SORT_ASC, $total_data);
         }
 
-        $json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+        
+                
+                    switch (isset($this->request->cookie['language']) && $this->request->cookie['language']) {
+                        case 'ru':
+                            $json['total'] =  'В корзине '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товара','товаров'));
+                        break;
+                        case 'ua':
+                            $json['total'] = 'У кошику '.$this->plural_tool(
+                                                         $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0),
+                                                         $this->currency->format($total),
+                                                         array('товар','товару','товарів'));
+                        break;
+                        default:
+                            $json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+                    }
+                
+            
 
         $this->data['totals'] = $total_data;
 
