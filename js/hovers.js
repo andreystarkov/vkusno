@@ -4,12 +4,12 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
 (function() {
-	
+
 	function init() {
 		var speed = 250,
 			easing = mina.easeinout;

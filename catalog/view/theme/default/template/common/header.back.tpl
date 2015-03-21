@@ -3,15 +3,7 @@
 <meta charset="UTF-8" />
     <title><?php echo $title; ?></title>
     <base href="<?php echo $base; ?>" />
-
     <meta name='yandex-verification' content='4d7ee59ca25f1a15' />
-    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-touch-fullscreen" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="М-Вкусно">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <?php if ($description) { ?>
     <meta name="description" content="<?php echo $description; ?>" />
@@ -29,25 +21,67 @@
     <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
     <?php } ?>
 
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
+
     <?php foreach ($styles as $style) { ?>
     <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
     <?php } ?>
 
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/root.css">
+
+    <!-- <link rel="stylesheet/less" type="text/css" href="css/root.less" />
+  <script src="/src/catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />  -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/fonts/hagincaps/font.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/fullwidth-slider.css" />
+    <link rel="stylesheet" type="text/css" href="/css/tooltipster.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nanoscroller.css" />
 
-    <link rel="stylesheet" href="/css/all.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-    <script src="/js/misc/snap.svg-min.js"></script>
-    <script src="/js/misc/modernizr.custom.js"></script>
 
     <script src="/js/all.js"></script>
-    <script src="/js/fullwidth-slider.js"></script>
-    <script src="/js/engine.js"></script>
-    <script src="/js/main.js"></script>
+<script src="/catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
+<!--    <link rel="stylesheet" type="text/css" href="/css/ui/jquery-ui.structure.min.css" />
+    <script src="/js/jquery/jquery-ui.min.js"></script> -->
+    <?php foreach ($scripts as $script) { ?>
+    <script type="text/javascript" src="<?php echo $script; ?>"></script>
+    <?php } ?>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie7.css" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+    <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript">
+    DD_belatedPNG.fix('#logo img');
+    </script>
+    <![endif]-->
+
+    <?php if ($stores) { ?>
+    <script type="text/javascript"><!--
+      /*
+      $(document).ready(function() {
+      <?php foreach ($stores as $store) { ?>
+      $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
+      <?php } ?>
+      }); */
+      //-->
+    </script>
+    <?php } ?>
+    <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
+    <?php echo $google_analytics; ?>
 
     <script>
       $(function(){
+
           <? if(!empty($paths[0])){ ?>
               var selector = '.parent-'+<? echo $paths[0]; ?>;
               toggleNavCategory($(selector));
@@ -57,7 +91,10 @@
                 $(selector1).addClass('active');
                  toggleNavSubCategory($(selector1));
               }
-          <? }  ?>
+
+          <? } else { ?>
+          //      toggleNavCategory($('.parent-84'));
+          <? } ?>
 
           <?  $cart_contents = $this->cart->countProducts();
               if ($cart_contents > 0){
@@ -69,12 +106,9 @@
         });
     </script>
 
-    <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
-    <?php echo $google_analytics; ?>
-
-    <style>
-    .mini-cart-info table { width: 100%; }
-    </style>
+    <!-- <script src="/js/misc/less-1.7.0.min.js"></script>-->
+    <script type="text/javascript" src="/js/misc/snap.svg-min.js"></script>
+    <script src="/js/misc/modernizr.custom.js"></script>
 </head>
 <body>
 
@@ -178,7 +212,6 @@
         <i>Мясо краба, томаты черри, красный лук, специи.</i>
       </div>
       </div>
-
 
      <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
       <ul class="itemwrap">

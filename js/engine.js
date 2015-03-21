@@ -47,7 +47,7 @@
 
     $(function(){
 
-      $(window).scroll(function(){
+/*      $(window).scroll(function(){
         if($('#left-panel').parent().parent().hasClass('skel-panels-panel') == false){
           if($(this).scrollTop()>120){
             $('.mini-cart-holder').css({top: 70+$(this).scrollTop()});
@@ -60,6 +60,6 @@
             $('.nav-items').css({position: 'relative', top: '0px'});
           }
         }
-      });
+      });*/
 
 });

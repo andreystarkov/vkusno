@@ -385,7 +385,7 @@ class ControllerCheckoutOCUCart extends Controller {
             if (!isset($json['error'])) {
                 $this->cart->add($this->request->post['product_id'], $quantity, $option);
 
-                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/ocu_cart'));
+                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], "http://m-vkusno.ru/index.php?route=checkout/cart");
 
                 unset($this->session->data['shipping_methods']);
                 unset($this->session->data['shipping_method']);

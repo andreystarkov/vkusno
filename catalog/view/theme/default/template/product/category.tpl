@@ -58,7 +58,7 @@
     </div>
   </div>
 
-    <div class="box-item">
+    <div class="box-item" style="overflow:visible">
       <?php foreach ($products as $product) { ?>
         <div class="boxy">
           <?php if ( empty($product['thumb']) ) { $imgThumb = "/image/no.jpg"; } else { $imgThumb = $product['thumb']; } ?>

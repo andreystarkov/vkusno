@@ -69,7 +69,11 @@
 								<td><textarea rows="6" name="comment"><?php echo $comment?></textarea></td>
 							</tr>
 							<tr>
-								<td></td>
+								<td>
+									<a class="btn-send btn-back" href="http://m-vkusno.ru/index.php?route=checkout/cart">
+										Изменить</i>
+									</a>
+								</td>
 								<td>
 									<a id="confirm" class="btn-send"><span><?php echo $button_confirm?></span> </a>
 								</td>

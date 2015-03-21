@@ -117,10 +117,9 @@ class ControllerCommonHeader extends Controller {
 						'filter_sub_category' => true
 					);
 
-					$product_total = $this->model_catalog_product->getTotalProducts($data);
 
 					$children_data[] = array(
-						'name'  => $child['name'].' <span>' . $product_total . '</span>',
+						'name'  => $child['name'],
 						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),
 						'children' => $this->getChildrenData($child['category_id'], $category['category_id']),
 						'parent_id' => $category['category_id'],
@@ -138,10 +137,9 @@ class ControllerCommonHeader extends Controller {
 						'filter_sub_category' => true
 					);
 
-					$product_total2 = $this->model_catalog_product->getTotalProducts($data2);
 
 					$children2_data[] = array(
-						'name'  => $child2['name'].' <span>' . $product_total2 . '</span>',
+						'name'  => $child2['name'],
 						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child2['category_id']),
 						'parent_id' => $category['category_id'],
 						'id' => $child2['category_id']
@@ -184,10 +182,8 @@ class ControllerCommonHeader extends Controller {
 				'filter_sub_category' => true
 			);
 
-			$product_total = $this->model_catalog_product->getTotalProducts($data);
-
 			$children_data[] = array(
-				'name'  => $child['name'] . ' <span>' . $product_total . '</span>',
+				'name'  => $child['name'],
 				'href'  => $this->url->link('product/category', 'path=' . $path_prefix . '_' . $child['category_id'])
 			);
 		}

@@ -37,7 +37,7 @@
         <div class="total"><b><?php echo $total['title']; ?></b>: <?php echo $total['text']; ?></div>
         <?php } ?>
     </div>
-    <div class="checkout"><a class="to-cart tip" href="<?php echo $cart; ?>" title="<?php echo $text_cart; ?>"><i class="fa fa-shopping-cart"></i></a>
+    <div class="checkout"><a class="to-cart tip" href="http://m-vkusno.ru/index.php?route=checkout/cart" title="В корзину"><i class="fa fa-shopping-cart"></i></a>
       <a class="to-checkout tip" href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-cutlery"></i></a></div>
     <?php } else { ?>
     <div class="empty"><?php echo $text_empty; ?></div>
