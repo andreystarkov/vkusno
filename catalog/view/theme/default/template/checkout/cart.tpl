@@ -21,7 +21,7 @@
     &nbsp;(<?php echo $weight; ?>)
     <?php } */ ?>
   </h1>
-  <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+  <form action="<?php echo $action; ?>" method="post" id="update" enctype="multipart/form-data">
     <div class="cart-info">
       <table>
         <thead>
@@ -63,10 +63,11 @@
               <?php if ($product['reward']) { ?>
               <small><?php echo $product['reward']; ?></small>
               <?php } ?></td>
-            <td class="quantity"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" />
-            <!--  &nbsp;
+      <td class="quantity">
+      <input class="howMuch" type="text" name="quantity[<?php echo $product['key']; ?>]" onBlur="updateCart();" value="<?php echo $product['quantity']; ?>" size="1" />
+<!--               &nbsp;
               <input type="image" src="catalog/view/theme/default/image/update.png" alt="<?php echo $button_update; ?>" title="<?php echo $button_update; ?>" />
-              &nbsp; --></td>
+              &nbsp;  --></td>
             <td class="price"><?php echo $product['price']; ?></td>
             <td class="total"><?php echo $product['total']; ?></td>
 
@@ -219,6 +220,10 @@ $('input[name=\'next\']').bind('change', function() {
 //--></script>
 <?php if ($shipping_status) { ?>
 <script type="text/javascript"><!--
+  function updateCart(){
+     $('#update').submit();
+  }
+
 $('#button-quote').live('click', function() {
 	$.ajax({
 		url: 'index.php?route=checkout/cart/quote',

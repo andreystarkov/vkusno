@@ -160,6 +160,7 @@
             var currentVal = parseInt($('input', $(this).parent()).val());
             if (!isNaN(currentVal)) {
                 $('input', $(this).parent()).val(currentVal + 1);
+                $('#update').submit();
             }
         });
 
@@ -167,6 +168,7 @@
             var currentVal = parseInt($('input', $(this).parent()).val());
             if (!isNaN(currentVal)) {
                 $('input', $(this).parent()).val(currentVal - 1);
+                $('#update').submit();
             }
         });
     });

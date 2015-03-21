@@ -98,6 +98,7 @@ $(function() {
 
             var onEndAnimationNextItem = function() {
                 var caption = $('#'+$(this).attr('data-caption'));
+
                 $(caption).css({display: 'block'});
 
                 $(caption).transition({ rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700, function(){
