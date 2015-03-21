@@ -29,7 +29,7 @@ $(function() {
 
         var effects = ["fxSoftScale", "fxPressAway", "fxSideSwing", "fxFortuneWheel", "fxSwipe", "fxPushReveal", "fxSnapIn",
         "fxLetMeIn", "fxStickIt", "fxArchiveMe", "fxVGrowth", "fxSlideBehind", "fxSoftPulse", "fxCliffDiving"];
-        var rotateInterval = setInterval(function(){autoInterval()},7000);
+        var rotateInterval = setInterval(function(){autoInterval()},15000);
 
         function init() {
             showNav();
@@ -83,6 +83,7 @@ $(function() {
             var nextItem = items[ current ];
 
             captionChange();
+
             var onEndAnimationCurrentItem = function() {
                 this.removeEventListener( animEndEventName, onEndAnimationCurrentItem );
 
@@ -97,10 +98,9 @@ $(function() {
             }
 
             var onEndAnimationNextItem = function() {
+
                 var caption = $('#'+$(this).attr('data-caption'));
-
                 $(caption).css({display: 'block'});
-
                 $(caption).transition({ rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700, function(){
 
                 });

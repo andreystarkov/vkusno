@@ -37,11 +37,14 @@
           $('.sub-parent').removeClass('opened');
           $('.parent').removeClass('opened');
           $('.box-child').slideUp();
+          $('.logo').slideDown();
+
         } else {
           $('.parent').removeClass('opened');
           $('.box-child').slideUp();
           obj.addClass('opened');
           $(selector).slideToggle();
+          $('.logo').slideUp();
        }
     }
 

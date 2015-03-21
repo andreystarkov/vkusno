@@ -72,12 +72,6 @@
     <? if(!empty($this->request->get['path'])) { $paths = explode('_', $this->request->get['path']); } ?>
     <?php echo $google_analytics; ?>
 
-    <style>
-    .mini-cart-info table { width: 100%; }
-    .tip-product-description .tooltipster-content b { font-size: 25px; }
-    .tip-product-description .tooltipster-content p { font-size: 18px; margin-bottom: 0; }
-    .btn-mini-cart .empty { display: none; }
-    </style>
 </head>
 <body>
 
